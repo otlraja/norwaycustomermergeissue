@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "252348123821",
+    "firebase_url": "https://demon-66181.firebaseio.com",
+    "project_id": "demon-66181",
+    "storage_bucket": "demon-66181.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252348123821:android:a4757ce3117e497b459424",
+        "android_client_info": {
+          "package_name": "com.onetenlogics.norwayfinalcustomer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252348123821-dsr673keal27ia9l3pbkdq76p4q590e7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.onetenlogics.norwayfinalcustomer",
+            "certificate_hash": "aba243f6fdf6000ab722627a04eb1a6999ac8976"
+          }
+        },
+        {
+          "client_id": "252348123821-gru47ft7o8rf95bifgib6l6d0ivl4hvr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmfHnyob3dWTS58iFktE9A_X--xGs1Uds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252348123821-gru47ft7o8rf95bifgib6l6d0ivl4hvr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
