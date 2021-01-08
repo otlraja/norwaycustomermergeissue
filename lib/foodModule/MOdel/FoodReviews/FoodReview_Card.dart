@@ -43,53 +43,57 @@ class FoodReviewCards extends State<FoodReviewCard> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Text(
-              Foodreview[ind].name,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-          ),
-          Row(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Container(
-                  width: 25,
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.star,
-                      color: Color(0xFFFCD800),
-                      size: 15,
+            padding: const EdgeInsets.only(left: 20,right: 20),
+            child: Row(
+              children: [
+                Text(
+                  Foodreview[ind].name,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
+                Spacer(),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Container(
+                    width: 25,
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.star,
+                        color: Color(0xFFFCD800),
+                        size: 15,
+                      ),
+                      onPressed: (){},
                     ),
-                    onPressed: (){},
                   ),
                 ),
-              ),
-              Container(
-                  child: Text(
-                    Foodreview[ind].rate.toString(),
-                    style: AppFonts.monmyellow,
-                  )),
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.only(right: 30),
-                child: Text(
+                Container(
+                    child: Text(
+                      Foodreview[ind].rate.toString(),
+                      style: AppFonts.monmyellow,
+                    )),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20,right: 20),
+            child: Row(
+              children: <Widget>[
+                Text(
+                  Foodreview[ind].message,
+                  style: AppFonts.monm,
+                ),
+                Spacer(),
+                Text(
                   Foodreview[ind].date.toString(),
                   style: AppFonts.monmgrey,
                 ),
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Text(
-              Foodreview[ind].message,
-              style: AppFonts.monm,
+              ],
             ),
           ),
+
           SizedBox(
             height: 10,
-          )
+          ),
+          Divider(thickness: 2,)
         ],
       ),
     );

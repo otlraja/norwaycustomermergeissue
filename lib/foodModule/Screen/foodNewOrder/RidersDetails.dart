@@ -1,15 +1,26 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:norwayfinalcustomer/Component/Style/style.dart';
 import 'package:norwayfinalcustomer/foodModule/MOdel/FoodmsgCards/foodmsg.dart';
+import 'package:norwayfinalcustomer/global.dart';
 
 import '../Foodmsg_view.dart';
 class Ridersdetail extends StatefulWidget {
+  final index;
+  Ridersdetail(this.index);
   @override
   _RidersdetailState createState() => _RidersdetailState();
 }
 
 class _RidersdetailState extends State<Ridersdetail> {
+  GoogleMapController _controller;
+  Map<MarkerId, Marker> markers = <MarkerId, Marker>{};
+  bool checkPlatform = Platform.isIOS;
+
 
   Widget _getUpperLayer() {
     return DraggableScrollableSheet(
@@ -20,7 +31,7 @@ class _RidersdetailState extends State<Ridersdetail> {
         return SingleChildScrollView(
           controller: scrollController,
           child: Container(
-            height: MediaQuery.of(context).size.height/2.8,
+            height: MediaQuery.of(context).size.height/2.2,
             color: Colors.white,
             child: SingleChildScrollView(
               physics: NeverScrollableScrollPhysics(),
@@ -34,7 +45,6 @@ class _RidersdetailState extends State<Ridersdetail> {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                         children: [
-
                           Container(
                             width: 30,
                             height: 30,
@@ -93,7 +103,12 @@ class _RidersdetailState extends State<Ridersdetail> {
                               decoration: InputDecoration(
                                   icon: Icon(Icons.edit),
                                   border: InputBorder.none,
-                                  hintText: 'Any Instruction? E.g No Tomatos'
+                                  hintText: globalorderinprogressfood == null ?
+                                  'Any Instruction? E.g No Tomatos':
+                                  globalorderinprogressfood[widget.index].instr.toString() == ""?
+                                  'No Instruction':
+                                  globalorderinprogressfood[widget.index].instr.toString()
+
                               ),
                             ),
                           ),
@@ -123,9 +138,11 @@ class _RidersdetailState extends State<Ridersdetail> {
 
                               Positioned(
                                 top: 25,
-                                left: 250,
+                                left: 260,
                                 child: Text(
-                                  '5000.0',
+                                  globalorderinprogressfood == null ?
+                                  '0.0':
+                                  (globalorderinprogressfood[widget.index].price - globalorderinprogressfood[widget.index].tax).toString(),
                                   style: TextStyle(color: Colors.black,fontSize: 13),
                                 ),
                               ),
@@ -139,31 +156,36 @@ class _RidersdetailState extends State<Ridersdetail> {
 
                               Positioned(
                                 top: 45,
-                                left: 250,
+                                left: 260,
                                 child: Text(
-                                  '15.0',
+                                  globalorderinprogressfood == null ?
+                                  '0.0':
+                                  (globalorderinprogressfood[widget.index].tax).toString(),
                                   style: TextStyle(color: Colors.black,fontSize: 13),
                                 ),
                               ),
                               Positioned(
                                 top: 65,
                                 child: Text(
-                                  'Cash On Delivery',
+                                  globalorderinprogressfood == null ?
+                                  'Cash On Delivery':
+                                  globalorderinprogressfood[widget.index].payment,
                                   style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13),
                                 ),
                               ),
 
                               Positioned(
                                 top: 65,
-                                left: 250,
+                                left: 260,
                                 child: Text(
-                                  '15.0',
+                                  globalorderinprogressfood == null ?
+                                  '0.0':
+                                  globalorderinprogressfood[widget.index].price.toString(),
                                   style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 13),
                                 ),
                               ),
                             ],
                           ),
-
                         ),
                       ],
                     )
@@ -177,8 +199,54 @@ class _RidersdetailState extends State<Ridersdetail> {
       },
     );
   }
+  addMakers() {
+    checkPlatform ? print('ios') : print("android");
+    final MarkerId markerIdFrom = MarkerId("My Location");
+    final MarkerId markerIdVendor = MarkerId("Vendor Location");
+
+
+
+    final Marker markerTo = Marker(
+        markerId: markerIdFrom,
+        //position: LatLng(to_l.latitude, to_l.longitude),
+        position: LatLng(double.parse(globalorderinprogressfood[widget.index].userlat.toString()),
+            double.parse(globalorderinprogressfood[widget.index].userlng.toString())),
+        infoWindow: InfoWindow(
+            title: "user"),
+        icon: checkPlatform
+        // ? BitmapDescriptor.fromAsset("assets/destination.png")
+        // : BitmapDescriptor.fromAsset("assets/destination.png"),
+            ? BitmapDescriptor.defaultMarker
+            : BitmapDescriptor.defaultMarker);
+
+    final Marker markervendor = Marker(
+        markerId: markerIdVendor,
+        //position: LatLng(to_l.latitude, to_l.longitude),
+        position: LatLng(double.parse(globalorderinprogressfood[widget.index].venlat.toString()),
+            double.parse(globalorderinprogressfood[widget.index].venlng.toString())),
+        infoWindow: InfoWindow(
+            title: "vendor"),
+        icon: checkPlatform
+        // ? BitmapDescriptor.fromAsset("assets/destination.png")
+        // : BitmapDescriptor.fromAsset("assets/destination.png"),
+            ? BitmapDescriptor.defaultMarker
+            : BitmapDescriptor.defaultMarker);
+
+    // CameraUpdate cameraUpdate = CameraUpdate.newLatLngZoom(LatLng(double.parse(usercurrlat.toString()), double.parse(usercurrlng.toString())), 10);
+    // _controller.animateCamera(cameraUpdate);
+    setState(() {
+      markers[markerIdFrom] = markerTo;
+      markers[markerIdVendor] = markervendor;
+    });
+  }
+
+  static final CameraPosition initialLocation = CameraPosition(
+    target: LatLng(double.parse(usercurrlat.toString()), double.parse(usercurrlng.toString())),
+    zoom: 10.4746,
+  );
   @override
   Widget build(BuildContext context) {
+    addMakers();
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -190,56 +258,104 @@ class _RidersdetailState extends State<Ridersdetail> {
                 alignment: Alignment.bottomCenter,
                 child: Container(
                     height:300,
-                    child: _getUpperLayer()),
+                    child: Stack(children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Align(
+                          alignment: Alignment.bottomCenter,
+                          child: Container(
+                            height: MediaQuery.of(context).size.height/2,
+                            color: Colors.black,
+                            child: GoogleMap(
+                              myLocationButtonEnabled: true,
+                              myLocationEnabled: true,
+                              mapType: MapType.normal,
+                              initialCameraPosition: initialLocation,
+                              markers: Set<Marker>.of(markers.values),
+                              onMapCreated: (controller) {
+                                setState(() {
+                                  _controller = controller;
+                                });
+                              },
+
+                            ),
+
+                          ),
+                        ),
+                      ),
+                      _getUpperLayer(),
+
+                    ],)),
               ),
               Positioned(
                 top:10.0,left: 20,
                 child: InkWell(child: Icon(Icons.arrow_back,color: Colors.black,),
-                onTap: (){
-                  Navigator.pop(context);
-                },),
+                  onTap: (){
+                    Navigator.pop(context);
+                  },),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top:15),
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: Text("Rider Details",
+                    style: AppFonts.monmbold1,
+                  ),
+
+                ),
               ),
 
               Positioned(
                   top: 80,
                   left: 20,
                   child: Container(
-                      width: 60,
-                      height: 60,
-                      child: Image(
-                          image: AssetImage('assets/1.png')
-                      )
+                    width: 60,
+                    height: 60,
+                    child: globalorderinprogressfood == null ?
+                    Image.asset('assets/1.png',fit: BoxFit.fill,):
+                    Image.network(globalorderinprogressfood[widget.index].venimg,fit: BoxFit.fill,),
                   )
               ),
               Positioned(
                   top: 90,
-                  left: 75,
-                  child: Row(
-                    children: [
-                      Text(
-                         'Vegatable',
-                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(width: 100,),
-                      Text(
-                        'Picked Arranged',
-                        style: TextStyle(fontSize: 15,color: Colors.green[500]),
-                      ),
-                    ],
+                  left: 85,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width/1.5,
+                    child: Row(
+                      children: [
+                        Text(
+                          globalorderinprogressfood == null ?
+                          'Vegatable':
+                          globalorderinprogressfood[widget.index].venname,
+                          style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
+                        ),
+                        Spacer(),
+                        Text(
+                          globalorderinprogressfood == null ?
+                          'Picked Arranged':
+                          globalorderinprogressfood[widget.index].status,
+                          style: TextStyle(fontSize: 15,color: Colors.green[500]),
+                        ),
+                      ],
+                    ),
                   )
               ),
               Positioned(
                   top: 115,
-                  left: 90,
+                  left: 85,
                   child: Row(
                     children: [
                       Text(
-                        '20 June , 11:58am',
+                        globalorderinprogressfood == null ?
+                        '20 June , 11:58am':
+                        globalorderinprogressfood[widget.index].date,
                         style: TextStyle(fontSize: 12,color: Colors.grey[500]),
                       ),
                       SizedBox(width: 100,),
                       Text(
-                        '\$11.00 | PayPal',
+                        globalorderinprogressfood == null ?
+                        '\$11.00 | PayPal':
+                        "\$ "+globalorderinprogressfood[widget.index].price.toString(),
                         style: TextStyle(fontSize: 12,color: Colors.grey[500]),
                       ),
 
@@ -257,23 +373,23 @@ class _RidersdetailState extends State<Ridersdetail> {
               ),
               Positioned(
                   top: 160,
-                  left: 80,
+                  left: 20,
                   child: Row(
                     children: [
                       Icon(
-                     Icons.location_on,
+                        Icons.location_on,
                         color: Colors.green[500],
                         size: 15,
                       ),
                       SizedBox(width: 10,),
-                      Text(
-                        'LiverPool Street 12',
-                        style: TextStyle(fontSize: 12,color: Colors.black,fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(width: 10,),
-                      Text(
-                        '(Norway)',
-                        style: TextStyle(fontSize: 12,color: Colors.grey[500],),
+                      Container(
+                        width: MediaQuery.of(context).size.width/1.5,
+                        child: Text(
+                          globalorderinprogressfood == null ?
+                          'LiverPool Street 12':
+                          globalorderinprogressfood[widget.index].venadd,
+                          style: TextStyle(fontSize: 12,color: Colors.black,fontWeight: FontWeight.bold),
+                        ),
                       ),
 
                     ],
@@ -281,7 +397,7 @@ class _RidersdetailState extends State<Ridersdetail> {
               ),
               Positioned(
                   top: 190,
-                  left: 80,
+                  left: 20,
                   child: Row(
                     children: [
                       Icon(
@@ -290,19 +406,23 @@ class _RidersdetailState extends State<Ridersdetail> {
                         size: 15,
                       ),
                       SizedBox(width: 10,),
-                      Text(
-                        'Home',
-                        style: TextStyle(fontSize: 12,color: Colors.black,fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(width: 10,),
-                      Text(
-                        '(Central Norway)',
-                        style: TextStyle(fontSize: 12,color: Colors.grey[500],),
+                      Container(
+                        width: MediaQuery.of(context).size.width/1.5,
+                        child: Text(
+                          globalorderinprogressfood == null ?
+                          'Home':
+                          globalorderinprogressfood[widget.index].useraddr,
+                          style: TextStyle(fontSize: 12,color: Colors.black,fontWeight: FontWeight.bold),
+                          maxLines: 2,
+                        ),
                       ),
 
                     ],
                   )
               ),
+
+
+
             ],
           ),
         ),

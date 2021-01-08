@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rIN/values-en-rIN.xml",
+            "outputFile": "/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
-                    "source": "/Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/e6856c7cff7219f18cbbcc5d8d7cecec/core-1.1.0/res/values-en-rIN/values-en-rIN.xml",
+                    "source": "/Users/bilal/.gradle/caches/transforms-2/files-2.1/e6856c7cff7219f18cbbcc5d8d7cecec/core-1.1.0/res/values-en-rIN/values-en-rIN.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

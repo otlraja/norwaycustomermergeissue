@@ -3,6 +3,7 @@ import 'package:credit_card/credit_card_model.dart';
 import 'package:credit_card/credit_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:norwayfinalcustomer/global.dart';
+import 'package:norwayfinalcustomer/testSplash.dart';
 
 import 'Models/credit_card_model.dart';
 import 'main.dart';
@@ -79,7 +80,7 @@ class _MasterCardState extends State<MasterCard> {
                 final String
                 encodedData =
                 CreditCardModel.encodeMusics(credit);
-                MyApp.sharedPreferences.setString("creditcard",
+                SplashTest.sharedPreferences.setString("creditcard",
                     encodedData);
 
                 Navigator.pop(context);

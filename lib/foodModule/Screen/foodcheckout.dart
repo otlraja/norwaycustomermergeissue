@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:norwayfinalcustomer/API/API.dart';
+import 'package:norwayfinalcustomer/Models/products.dart';
 import 'package:norwayfinalcustomer/PaymentCardSelect.dart';
 import 'package:norwayfinalcustomer/foodModule/MOdel/Food_Checkout/foodcheckout_builder.dart';
-import 'package:norwayfinalcustomer/foodModule/Screen/foodNewOrder/RidersDetails.dart';
+import 'package:norwayfinalcustomer/foodModule/Screen/foodHome.dart';
 import 'package:norwayfinalcustomer/foodModule/Widget/Component/Style/style.dart';
 import '../../global.dart';
+import '../../testSplash.dart';
 
 class FoodCheckout extends StatefulWidget {
+  Function set;
+  FoodCheckout(this.set);
   @override
   _FoodCheckoutState createState() => _FoodCheckoutState();
 }
@@ -16,11 +20,26 @@ class _FoodCheckoutState extends State<FoodCheckout> {
   var i = 0;
   final notecontroller = TextEditingController();
 
+  var showset = globalfoodcart;
+  var setsubtotal = "0.0";
+  var clickstatus=true;
 
   @override
   void initState() {
     if(selectedcardindex == null){
       selectedcardindex = "0";
+    }
+    if(type == 'food'){
+      showset = globalfoodcart;
+      setsubtotal = cartprice== null ? "0.0" : cartprice.toString();
+    }
+    else if(type == 'grocery'){
+      showset = globalgrocerycart;
+      setsubtotal = grocerycartprice== null ? "0.0" : grocerycartprice.toString();
+    }
+    else if(type == 'store'){
+      showset = globalstorecart;
+      setsubtotal = storecartprice== null ? "0.0" : storecartprice.toString();
     }
     super.initState();
   }
@@ -50,9 +69,24 @@ class _FoodCheckoutState extends State<FoodCheckout> {
           ),
           child: Center(child: Text("OK", style: TextStyle(color: Colors.green)))),
       onPressed: (){
+        if(type == 'food'){
+          globalfoodcart.clear();
+          var encode = Products.encodeMusics(globalfoodcart);
+          SplashTest.sharedPreferences.setString('foodcart', encode);
+        }
+        else if(type == 'grocery'){
+          globalgrocerycart.clear();
+          var encode = Products.encodeMusics(globalgrocerycart);
+          SplashTest.sharedPreferences.setString('grocerycart', encode);
+        }
+        else if(type == 'store'){
+          globalstorecart.clear();
+          var encode = Products.encodeMusics(globalstorecart);
+          SplashTest.sharedPreferences.setString('storecart', encode);
+        }
+        widget.set();
         Navigator.pop(context);
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (_) => Ridersdetail()));
+        Navigator.pop(context);
       },
     );
 
@@ -91,6 +125,7 @@ class _FoodCheckoutState extends State<FoodCheckout> {
           ),
           child: Center(child: Text("Close", style: TextStyle(color: Colors.green)))),
       onPressed: () {
+
         Navigator.pop(context);
       },
     );
@@ -122,27 +157,24 @@ class _FoodCheckoutState extends State<FoodCheckout> {
     if(i == 0){
       setState(() {
         indicatorvisible = true;
-        //indicator();
       });
     }
     i++;
-    //pr.show();
     await Future.delayed(const Duration(seconds: 1), () {
       if (API.success == 'true') {
         setState(() {
           indicatorvisible = false;
         });
         i = 0;
-        //pr.hide();
+        clickstatus=true;
         showAlertDialogThankyou();
-        // Navigator.of(context).push(
-        //     MaterialPageRoute(builder: (_) => FoodReview(widget.index)));
       }
       else if(API.success == 'error'){
         setState(() {
           indicatorvisible = false;
         });
         i = 0;
+        clickstatus=true;
         showAlertDialogError();
       }
       else {
@@ -175,7 +207,7 @@ class _FoodCheckoutState extends State<FoodCheckout> {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(top: 10,left: 10 , right: 10),
               child: SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
@@ -190,81 +222,81 @@ class _FoodCheckoutState extends State<FoodCheckout> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
 
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 10,),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Container(
-                                        color: Colors.white,
-                                        //height: size.height / 12,
-                                        child: IconButton(
-                                          icon: Icon(Icons.arrow_back_ios),
-                                          onPressed: () {
-                                            // setState(() {
-                                            //   widget.popup();
-                                            // });
-                                            Navigator.pop(context);
-                                          },
-                                        ),
+                                Row(
+                                  mainAxisAlignment:
+                                  MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Container(
+                                      color: Colors.white,
+                                      //height: size.height / 12,
+                                      child: IconButton(
+                                        icon: Icon(Icons.arrow_back_ios, size: 20,),
+                                        onPressed: () {
+                                          // setState(() {
+                                          //   widget.popup();
+                                          // });
+                                          Navigator.pop(context);
+                                        },
                                       ),
-                                      Container(
-                                          padding: EdgeInsets.only(left: 10),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 8),
+                                      child: Container(
+                                          padding: EdgeInsets.only(left: 10,),
                                           color: Colors.white,
                                           height: size.height / 20,
                                           child: Image.asset('assets/pro.png')),
-                                      Container(
-                                        padding: EdgeInsets.only(left: 10),
-                                        //width: size.width / 2,
-                                        child: Column(
-                                          mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                          children: <Widget>[
-                                            Text(
-                                              username != null ? username : "Omar",
-                                              style: AppFonts.monm,
-                                            ),
-                                            Text(
-                                              '20 Jun, 11:35 am',
-                                              style: AppFonts.monmgrey12,
-                                            )
-                                          ],
-                                        ),
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.only(left: 10,top: 8),
+                                      //width: size.width / 2,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                            username != null ? username : "Omar",
+                                            style: AppFonts.monm,
+                                          ),
+                                          Text(
+                                            '20 Jun, 11:35 am',
+                                            style: AppFonts.monmgrey12,
+                                          )
+                                        ],
                                       ),
-                                      // Spacer(),
-                                      // Container(
-                                      //
-                                      //   //width: size.width / 7,
-                                      //   child: IconButton(
-                                      //       // color: Color(0xff7ac81d),
-                                      //       color: Colors.green[500],
-                                      //       icon: Icon(Icons.message),
-                                      //       onPressed: () {
-                                      //         Navigator.of(context).push(
-                                      //             MaterialPageRoute(
-                                      //                 builder: (_) =>
-                                      //                     Foodmsgview()));
-                                      //       }),
-                                      // ),
-                                      // Container(
-                                      //   padding: EdgeInsets.only(right: 10),
-                                      //   child: IconButton(
-                                      //       color: Colors.green[500],
-                                      //       icon: Icon(Icons.phone),
-                                      //       onPressed: () {}),
-                                      // )
-                                    ],
-                                  ),
+                                    ),
+                                    // Spacer(),
+                                    // Container(
+                                    //
+                                    //   //width: size.width / 7,
+                                    //   child: IconButton(
+                                    //       // color: Color(0xff7ac81d),
+                                    //       color: Colors.green[500],
+                                    //       icon: Icon(Icons.message),
+                                    //       onPressed: () {
+                                    //         Navigator.of(context).push(
+                                    //             MaterialPageRoute(
+                                    //                 builder: (_) =>
+                                    //                     Foodmsgview()));
+                                    //       }),
+                                    // ),
+                                    // Container(
+                                    //   padding: EdgeInsets.only(right: 10),
+                                    //   child: IconButton(
+                                    //       color: Colors.green[500],
+                                    //       icon: Icon(Icons.phone),
+                                    //       onPressed: () {}),
+                                    // )
+                                  ],
                                 )
                               ],
                             ),
                           ),
                           SizedBox(
-                            height: 10,
+                            height: 5,
                           ),
                           FoodCheckoutList(),
                           Container(
@@ -316,7 +348,7 @@ class _FoodCheckoutState extends State<FoodCheckout> {
                                             Container(
                                                 width: 60,
                                                 child: Text(
-                                                  "\$ "+cartprice.toString(),
+                                                  "\$ "+setsubtotal.toString(),
                                                   style: AppFonts.monm,
                                                 )),
                                           ],
@@ -364,7 +396,7 @@ class _FoodCheckoutState extends State<FoodCheckout> {
                                             Container(
                                                 width: 60,
                                                 child: Text(
-                                                  '\$ '+(double.parse(sales_tax.toString())+double.parse(cartprice.toString())).toString(),
+                                                  '\$ '+(double.parse(sales_tax.toString())+double.parse(setsubtotal.toString())).toString(),
                                                   style: AppFonts.monm15bold,
                                                 )),
                                           ],
@@ -401,7 +433,7 @@ class _FoodCheckoutState extends State<FoodCheckout> {
                                                 CrossAxisAlignment.start,
                                                 children: <Widget>[
                                                   Text(
-                                                    globalfoodcart.isEmpty ? vendorname: globalfoodcart[0].vendorname,
+                                                    showset.isEmpty ? vendorname : showset[0].vendorname,
                                                     style: AppFonts.monm,
                                                   ),
                                                   Text(
@@ -547,7 +579,12 @@ class _FoodCheckoutState extends State<FoodCheckout> {
                     ),
                   ),
                   onTap: (){
-                    checkout();
+
+                    if(clickstatus)
+                    {
+                      checkout();
+                    }
+
                   },
                 ),
               ],
@@ -558,149 +595,187 @@ class _FoodCheckoutState extends State<FoodCheckout> {
     );
   }
 
-  void checkout(){
-    if(globalfoodcart.isNotEmpty) {
-      if (type == 'food') {
-        if (selectpaymenttype == 'cash') {
-          API.checkout(
-              foodcheckoutAPI,
-              userid.toString(),
-              newglobalfoodcart[0].vendorid.toString(),
-              (double.parse(sales_tax.toString())+double.parse(cartprice.toString())).toString(),
-              sales_tax.toString(),
-              notecontroller.text.toString(),
-              "cod",
-              null,
-              null,
-              null,
-              null,
-              newglobalfoodcart);
-          waitforcheckout();
-        }
-        else{
-          var expiry = credit[
-          selectedcardindex == null ? 0
-              : int.parse(selectedcardindex)
-          ].expiryDate;
-
-          var expiry1 = expiry.split('/');
-
-          API.checkout(
-              foodcheckoutAPI,
-              userid.toString(),
-              newglobalfoodcart[0].vendorid.toString(),
-              (double.parse(sales_tax.toString())+double.parse(cartprice.toString())).toString(),
-              sales_tax.toString(),
-              notecontroller.text.toString(),
-              "card",
-              credit[
+  void checkout()async{
+    clickstatus=false;
+    checkconnection();
+    await Future.delayed(Duration(seconds: 2) , (){
+      if(result != null && result){
+        if(showset.isNotEmpty) {
+          if(userselectlat == null){
+            userselectlat = usercurrlat.toString();
+            userselectlng = usercurrlng.toString();
+            userselectadd = usercurraddr.toString();
+          }
+          if (type == 'food') {
+            if (selectpaymenttype == 'cash') {
+              API.checkout(
+                  foodcheckoutAPI,
+                  userid.toString(),
+                  newglobalfoodcart[0].vendorid.toString(),
+                  (double.parse(sales_tax.toString())+double.parse(setcartprice.toString())).toString(),
+                  sales_tax.toString(),
+                  notecontroller.text.toString(),
+                  "cod",
+                  null,
+                  null,
+                  null,
+                  null,
+                  newglobalfoodcart,
+                  deliverytype,
+                  userselectlat,
+                  userselectlng,
+                  userselectadd);
+              waitforcheckout();
+            }
+            else{
+              var expiry = credit[
               selectedcardindex == null ? 0
                   : int.parse(selectedcardindex)
-              ].cardNumber.toString(),
-              expiry1[0].toString(),
-              expiry1[1].toString(),
-              credit[
+              ].expiryDate;
+
+              var expiry1 = expiry.split('/');
+
+              API.checkout(
+                  foodcheckoutAPI,
+                  userid.toString(),
+                  newglobalfoodcart[0].vendorid.toString(),
+                  (double.parse(sales_tax.toString())+double.parse(setcartprice.toString())).toString(),
+                  sales_tax.toString(),
+                  notecontroller.text.toString(),
+                  "card",
+                  credit[
+                  selectedcardindex == null ? 0
+                      : int.parse(selectedcardindex)
+                  ].cardNumber.toString(),
+                  expiry1[0].toString(),
+                  expiry1[1].toString(),
+                  credit[
+                  selectedcardindex == null ? 0
+                      : int.parse(selectedcardindex)
+                  ].cvvCode.toString(),
+                  newglobalfoodcart,
+                  deliverytype,
+                  userselectlat,
+                  userselectlng,
+                  userselectadd);
+              waitforcheckout();
+            }
+          }
+          else if(type == 'grocery'){
+            if (selectpaymenttype == 'cash') {
+              API.checkout(
+                  grocerycheckoutAPI,
+                  userid.toString(),
+                  newglobalfoodcart[0].vendorid.toString(),
+                  (double.parse(sales_tax.toString())+double.parse(setcartprice.toString())).toString(),
+                  sales_tax.toString(),
+                  notecontroller.text.toString(),
+                  "cod",
+                  null,
+                  null,
+                  null,
+                  null,
+                  newglobalfoodcart,
+                  deliverytype,
+                  userselectlat,
+                  userselectlng,
+                  userselectadd);
+              waitforcheckout();
+            }
+            else{
+              var expiry = credit[
               selectedcardindex == null ? 0
                   : int.parse(selectedcardindex)
-              ].cvvCode.toString(),
-              newglobalfoodcart);
-          waitforcheckout();
+              ].expiryDate;
+
+              var expiry1 = expiry.split('/');
+
+              API.checkout(
+                  grocerycheckoutAPI,
+                  userid.toString(),
+                  newglobalfoodcart[0].vendorid.toString(),
+                  (double.parse(sales_tax.toString())+double.parse(setcartprice.toString())).toString(),
+                  sales_tax.toString(),
+                  notecontroller.text.toString(),
+                  "card",
+                  credit[
+                  selectedcardindex == null ? 0
+                      : int.parse(selectedcardindex)
+                  ].cardNumber.toString(),
+                  expiry1[0].toString(),
+                  expiry1[1].toString(),
+                  credit[
+                  selectedcardindex == null ? 0
+                      : int.parse(selectedcardindex)
+                  ].cvvCode.toString(),
+                  newglobalfoodcart,
+                  deliverytype,
+                  userselectlat,
+                  userselectlng,
+                  userselectadd);
+              waitforcheckout();
+            }
+          }
+          else if(type == 'store'){
+            if (selectpaymenttype == 'cash') {
+              API.checkout(
+                  storecheckoutAPI,
+                  userid.toString(),
+                  newglobalfoodcart[0].vendorid.toString(),
+                  (double.parse(sales_tax.toString())+double.parse(setcartprice.toString())).toString(),
+                  sales_tax.toString(),
+                  notecontroller.text.toString(),
+                  "cod",
+                  null,
+                  null,
+                  null,
+                  null,
+                  newglobalfoodcart,
+                  deliverytype,
+                  userselectlat,
+                  userselectlng,
+                  userselectadd);
+              waitforcheckout();
+            }
+            else{
+              var expiry = credit[
+              selectedcardindex == null ? 0
+                  : int.parse(selectedcardindex)
+              ].expiryDate;
+
+              var expiry1 = expiry.split('/');
+
+              API.checkout(
+                  storecheckoutAPI,
+                  userid.toString(),
+                  newglobalfoodcart[0].vendorid.toString(),
+                  (double.parse(sales_tax.toString())+double.parse(setcartprice.toString())).toString(),
+                  sales_tax.toString(),
+                  notecontroller.text.toString(),
+                  "card",
+                  credit[
+                  selectedcardindex == null ? 0
+                      : int.parse(selectedcardindex)
+                  ].cardNumber.toString(),
+                  expiry1[0].toString(),
+                  expiry1[1].toString(),
+                  credit[
+                  selectedcardindex == null ? 0
+                      : int.parse(selectedcardindex)
+                  ].cvvCode.toString(),
+                  newglobalfoodcart,
+                  deliverytype,
+                  userselectlat,
+                  userselectlng,
+                  userselectadd);
+              waitforcheckout();
+            }
+          }
         }
       }
-      else if(type == 'grocery'){
-        if (selectpaymenttype == 'cash') {
-          API.checkout(
-              grocerycheckoutAPI,
-              userid.toString(),
-              newglobalfoodcart[0].vendorid.toString(),
-              (double.parse(sales_tax.toString())+double.parse(cartprice.toString())).toString(),
-              sales_tax.toString(),
-              notecontroller.text.toString(),
-              "cod",
-              null,
-              null,
-              null,
-              null,
-              newglobalfoodcart);
-          waitforcheckout();
-        }
-        else{
-          var expiry = credit[
-          selectedcardindex == null ? 0
-              : int.parse(selectedcardindex)
-          ].expiryDate;
-
-          var expiry1 = expiry.split('/');
-
-          API.checkout(
-              grocerycheckoutAPI,
-              userid.toString(),
-              newglobalfoodcart[0].vendorid.toString(),
-              (double.parse(sales_tax.toString())+double.parse(cartprice.toString())).toString(),
-              sales_tax.toString(),
-              notecontroller.text.toString(),
-              "card",
-              credit[
-              selectedcardindex == null ? 0
-                  : int.parse(selectedcardindex)
-              ].cardNumber.toString(),
-              expiry1[0].toString(),
-              expiry1[1].toString(),
-              credit[
-              selectedcardindex == null ? 0
-                  : int.parse(selectedcardindex)
-              ].cvvCode.toString(),
-              newglobalfoodcart);
-          waitforcheckout();
-        }
+      else{
+        internettoast();
       }
-      else if(type == 'store'){
-        if (selectpaymenttype == 'cash') {
-          API.checkout(
-              storecheckoutAPI,
-              userid.toString(),
-              newglobalfoodcart[0].vendorid.toString(),
-              (double.parse(sales_tax.toString())+double.parse(cartprice.toString())).toString(),
-              sales_tax.toString(),
-              notecontroller.text.toString(),
-              "cod",
-              null,
-              null,
-              null,
-              null,
-              newglobalfoodcart);
-          waitforcheckout();
-        }
-        else{
-          var expiry = credit[
-          selectedcardindex == null ? 0
-              : int.parse(selectedcardindex)
-          ].expiryDate;
-
-          var expiry1 = expiry.split('/');
-
-          API.checkout(
-              storecheckoutAPI,
-              userid.toString(),
-              newglobalfoodcart[0].vendorid.toString(),
-              (double.parse(sales_tax.toString())+double.parse(cartprice.toString())).toString(),
-              sales_tax.toString(),
-              notecontroller.text.toString(),
-              "card",
-              credit[
-              selectedcardindex == null ? 0
-                  : int.parse(selectedcardindex)
-              ].cardNumber.toString(),
-              expiry1[0].toString(),
-              expiry1[1].toString(),
-              credit[
-              selectedcardindex == null ? 0
-                  : int.parse(selectedcardindex)
-              ].cvvCode.toString(),
-              newglobalfoodcart);
-          waitforcheckout();
-        }
-      }
-    }
+    });
   }
 }

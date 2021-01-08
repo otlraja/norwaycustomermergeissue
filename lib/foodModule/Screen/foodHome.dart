@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:norwayfinalcustomer/API/API.dart';
+import 'package:norwayfinalcustomer/Models/productType.dart';
 import 'package:norwayfinalcustomer/Registration/login.dart';
 import 'package:norwayfinalcustomer/Models/products.dart';
 import 'package:norwayfinalcustomer/RegistrationApi/Login.dart';
@@ -9,26 +10,46 @@ import 'package:norwayfinalcustomer/foodModule/Widget/SearchBarfood.dart';
 import 'package:norwayfinalcustomer/global.dart';
 import '../../global.dart';
 import '../../main.dart';
+import '../../testSplash.dart';
 import 'FoodReview.dart';
 import 'foodcheckout.dart';
 
 bool val = false;
+var setcartlength = globalfoodcart;
+var setcartprice = "0.0";
+var clickstatus=true;
 
 class Food_Home extends StatefulWidget {
   final index;
+
+
   Food_Home(this.index);
   static Widget carttext() {
-    if (globalfoodcart.length != 0) {
+    if(type == 'food'){
+      setcartlength = globalfoodcart;
+      setcartprice = cartprice == null ? "0.0" : cartprice.toString();
+    }
+    else if(type == "grocery"){
+      setcartlength = globalgrocerycart;
+      setcartprice = grocerycartprice == null ? "0.0" : grocerycartprice.toString();
+    }
+    else if(type == 'store' ){
+      setcartlength = globalstorecart;
+      setcartprice = storecartprice== null ? "0.0" : storecartprice.toString();
+    }
+    if (setcartlength.length != 0 ) {
+
       val = true;
       return Text(
         'Item : ' +
-            globalfoodcart.length.toString() +
-            ' | \$ ' +
-            cartprice.toString(),
+            setcartlength.length.toString()
+            +
+            ' | \$ ' +  setcartprice.toString(),
         style: TextStyle(
             fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold),
       );
-    } else {
+    }
+    else {
       val = false;
       return Text(
         'Item : 0 | \$ 0.0',
@@ -41,10 +62,16 @@ class Food_Home extends StatefulWidget {
   _Food_HomeState createState() => _Food_HomeState();
 }
 
-class _Food_HomeState extends State<Food_Home> {
-
+class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
+  String filter = "";
+  TextEditingController controller = new TextEditingController();
+  List<Products> _filteredList = [];
+  List<Products> _vendorList = [];
   var indicatorvisible = false;
+  var index=0;
   var i = 0;
+
+  TabController _tabController;
   showAlertDialog() {
     // set up the buttons
     Widget cancelButton = FlatButton(
@@ -53,7 +80,7 @@ class _Food_HomeState extends State<Food_Home> {
         deliverytype = "AK Bookers Rider";
         Navigator.pop(context);
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (_) => FoodCheckout()));
+            .push(MaterialPageRoute(builder: (_) => FoodCheckout(set)));
       },
     );
     Widget cancel = FlatButton(
@@ -68,7 +95,7 @@ class _Food_HomeState extends State<Food_Home> {
         deliverytype = "Take A way";
         Navigator.pop(context);
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (_) => FoodCheckout()));
+            .push(MaterialPageRoute(builder: (_) => FoodCheckout(set)));
       },
     );
     // set up the AlertDialog
@@ -90,6 +117,12 @@ class _Food_HomeState extends State<Food_Home> {
     );
   }
 
+  set(){
+    setState(() {
+      calculatequantity();
+      Food_Home.carttext();
+    });
+  }
   showAlertDialoglogin() {
     // set up the buttons
     Widget cancel = FlatButton(
@@ -170,21 +203,59 @@ class _Food_HomeState extends State<Food_Home> {
           child: Center(child: Text("Continue", style: TextStyle(color: Colors.white)))),
       onPressed: () {
 
-        globalfoodcart.clear();
-        cartprice = 0.0;
+        if(type == "food"){
+          globalfoodcart.clear();
+          cartprice = 0.0;
 
-        MyApp.sharedPreferences.setString("cartprice",
-            cartprice.toString());
-        final String
-        encodedData =
-        Products.encodeMusics(globalfoodcart);
-        MyApp.sharedPreferences.setString("foodcart",
-            encodedData);
-        setState(() {
-          Food_Home.carttext();
-        });
+          SplashTest.sharedPreferences.setString("cartprice",
+              cartprice.toString());
+          final String
+          encodedData =
+          Products.encodeMusics(globalfoodcart);
+          SplashTest.sharedPreferences.setString("foodcart",
+              encodedData);
+          setState(() {
+            Food_Home.carttext();
+          });
 
-        Navigator.pop(context);
+          Navigator.pop(context);
+        }
+        else if(type == 'grocery'){
+          globalgrocerycart.clear();
+          grocerycartprice = 0.0;
+
+          SplashTest.sharedPreferences.setString("grocerycartprice",
+              grocerycartprice.toString());
+          final String
+          encodedData =
+          Products.encodeMusics(globalgrocerycart);
+          SplashTest.sharedPreferences.setString("grocerycart",
+              encodedData);
+          setState(() {
+            Food_Home.carttext();
+          });
+
+          Navigator.pop(context);
+        }
+        else if(type == 'store'){
+          globalstorecart.clear();
+          storecartprice = 0.0;
+
+          SplashTest.sharedPreferences.setString("storecartprice",
+              storecartprice.toString());
+          final String
+          encodedData =
+          Products.encodeMusics(globalstorecart);
+          SplashTest.sharedPreferences.setString("storecart",
+              encodedData);
+          setState(() {
+            Food_Home.carttext();
+          });
+
+          Navigator.pop(context);
+        }
+
+
 
         // Navigator.of(context).push(MaterialPageRoute(builder: (_) => Login()));
       },
@@ -212,34 +283,178 @@ class _Food_HomeState extends State<Food_Home> {
       },
     );
   }
+
+  waittofetchvendorsproducts() async {
+
+    await Future.delayed(const Duration(seconds: 1), () {
+      if (API.success == 'true') {
+        print('hogaya');
+        //_tabController = TabController(length: globalproductType.length, vsync: this);
+
+        setState(() {
+
+        });
+      } else {
+        waittofetchvendorsproducts();
+      }
+    });
+  }
+
+
+  getfilteredlist(){
+    List<Products> tmpList = new List<Products>();
+    for(int i=0; i < globalproductType[index].product.length; i++) {
+      tmpList.add(globalproductType[index].product[i]);
+    }
+    setState(() {
+      _vendorList = tmpList;
+      _filteredList = _vendorList;
+    });
+  }
+
+
+  getlist(){
+    if (type == "food") {
+      API.vendorProducts(FoodproductApi +
+          globalvendors[widget.index].id.toString());
+    } else if (type == "grocery") {
+      API.vendorProducts(GroceryProductApi +
+          globalvendors[widget.index].id.toString());
+    } else if (type == "store") {
+      API.vendorProducts(StoreProductApi +
+          globalvendors[widget.index].id.toString());
+    }
+    waittofetchvendorsproducts();
+  }
+
   @override
   void initState() {
+    _tabController = new TabController(length: globalproductType.length, vsync: this);
+    _tabController.addListener(() {
+      index = _tabController.index;
+      getfilteredlist();
+    });
+    List<Products> tmpList = new List<Products>();
+
+    for(int j=0; j < globalproductType[0].product.length; j++) {
+      tmpList.add(globalproductType[0].product[j]);
+    }
+    setState(() {
+      _vendorList = tmpList;
+      _filteredList = _vendorList;
+    });
+    controller.addListener(() {
+      if(controller.text.isEmpty) {
+        setState(() {
+          filter = "";
+          _filteredList = _vendorList;
+        });
+      } else {
+        setState(() {
+          filter = controller.text;
+        });
+      }
+    });
     calculatequantity();
     super.initState();
   }
 
   void calculatequantity() {
-    for (int i = 0; i < globalproductType.length; i++) {
-      for (int j = 0; j < globalproductType[i].product.length; j++) {
-        var a = globalproductType[i].product[j].id;
 
-        var b = globalfoodcart.where((element) => element.id == a);
+    if(type == 'food'){
+      if(globalfoodcart.isNotEmpty) {
+        for (int i = 0; i < globalproductType.length; i++) {
+          for (int j = 0; j < globalproductType[i].product.length; j++) {
+            var a = globalproductType[i].product[j].id;
 
-        if (b.length != 0) {
-          globalproductType[i].product[j] = b.first;
+            var b = globalfoodcart.where((element) => element.id == a);
+
+            if (b.length != 0) {
+              globalproductType[i].product[j] = b.first;
+            }
+          }
+        }
+      }
+      else{
+        for (int i = 0; i < globalproductType.length; i++) {
+          for (int j = 0; j < globalproductType[i].product.length; j++) {
+            globalproductType[i].product[j].orderquantity = 0;
+          }
+        }
+      }
+    }
+    else if(type == 'grocery'){
+      if(globalgrocerycart.isNotEmpty) {
+        for (int i = 0; i < globalproductType.length; i++) {
+          for (int j = 0; j < globalproductType[i].product.length; j++) {
+            var a = globalproductType[i].product[j].id;
+
+            var b = globalgrocerycart.where((element) => element.id == a);
+
+            if (b.length != 0) {
+              globalproductType[i].product[j] = b.first;
+            }
+          }
+        }
+      }
+      else{
+        for (int i = 0; i < globalproductType.length; i++) {
+          for (int j = 0; j < globalproductType[i].product.length; j++) {
+            globalproductType[i].product[j].orderquantity = 0;
+          }
+        }
+      }
+    }
+    else if(type == 'store'){
+      if(globalstorecart.isNotEmpty) {
+        for (int i = 0; i < globalproductType.length; i++) {
+          for (int j = 0; j < globalproductType[i].product.length; j++) {
+            var a = globalproductType[i].product[j].id;
+
+            var b = globalstorecart.where((element) => element.id == a);
+
+            if (b.length != 0) {
+              globalproductType[i].product[j] = b.first;
+            }
+          }
+        }
+      }
+      else{
+        for (int i = 0; i < globalproductType.length; i++) {
+          for (int j = 0; j < globalproductType[i].product.length; j++) {
+            globalproductType[i].product[j].orderquantity = 0;
+          }
         }
       }
     }
   }
 
   void calculateprice() {
-    cartprice = 0.0;
-    for (int i = 0; i < globalfoodcart.length; i++) {
-      cartprice += globalfoodcart[i].price;
-      print(cartprice.toString());
-    }
 
-    Food_Home.carttext();
+    if(type == 'food'){
+      cartprice = 0.0;
+      for (int i = 0; i < globalfoodcart.length; i++) {
+        cartprice += globalfoodcart[i].price;
+        print(cartprice.toString());
+      }
+      //Food_Home.carttext();
+    }
+    else if(type == 'grocery'){
+      grocerycartprice = 0.0;
+      for (int i = 0; i < globalgrocerycart.length; i++) {
+        grocerycartprice += globalgrocerycart[i].price;
+        print(grocerycartprice.toString());
+      }
+      //Food_Home.carttext();
+    }
+    else if(type == 'store'){
+      storecartprice = 0.0;
+      for (int i = 0; i < globalstorecart.length; i++) {
+        storecartprice += globalstorecart[i].price;
+        print(storecartprice.toString());
+      }
+      //Food_Home.carttext();
+    }
   }
 
   waittofetchvendorsreviews(var index)async{
@@ -255,6 +470,7 @@ class _Food_HomeState extends State<Food_Home> {
           indicatorvisible = false;
         });
         i = 0;
+        clickstatus=true;
         Navigator.of(context).push(
             MaterialPageRoute(builder: (_) => FoodReview(widget.index)));
       }
@@ -264,7 +480,66 @@ class _Food_HomeState extends State<Food_Home> {
     });
   }
 
+  Widget _SearchBar(){
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.blueGrey[50],
+        borderRadius: BorderRadius.all(
+          Radius.circular(25.0),
+        ),
+      ),
+      child: TextField(
+        onChanged: (val){
+          filter=val;
+        },
+        style: TextStyle(
+          fontSize: 15.0,
+          color: Colors.blueGrey[300],
+        ),
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(10.0),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(25.0),
+            borderSide: BorderSide(
+              color: Colors.white,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.white,
+            ),
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+          hintText: "Search Item And Stores",
+          prefixIcon: Icon(
+            Icons.search,
+            color: Colors.blueGrey[300],
+          ),
+          hintStyle: TextStyle(
+            fontSize: 15.0,
+            color: Colors.blueGrey[300],
+          ),
+        ),
+        maxLines: 1,
+        controller: controller,
+      ),
+    );
+  }
+
   Widget build(BuildContext context) {
+    // getlist();
+
+    if((filter.isNotEmpty)) {
+      List<Products> tmpList = new List<Products>();
+      for(int i = 0; i < _filteredList.length; i++) {
+        if(_filteredList[i].name.toLowerCase().contains(filter.toLowerCase()) ||
+            _filteredList[i].price.toString().contains(filter.toLowerCase())) {
+          tmpList.add(_filteredList[i]);
+        }
+      }
+      _filteredList = tmpList;
+    }
+
     return Scaffold(
       body: SafeArea(
         child: DefaultTabController(
@@ -283,6 +558,9 @@ class _Food_HomeState extends State<Food_Home> {
                         onTap: () {
                           Navigator.pop(context);
                         },
+                      ),
+                      SizedBox(
+                        height: 10,
                       ),
                       Text(
                         vendorname,
@@ -323,7 +601,7 @@ class _Food_HomeState extends State<Food_Home> {
                     width: 10,
                   ),
                   Text(
-                    '6.4 | ' + vendoraddress,
+                    vendordistance.toStringAsFixed(1).toString()+' | ' + vendoraddress,
                     style: TextStyle(color: Colors.grey[500], fontSize: 10),
                   )
                 ],
@@ -345,30 +623,36 @@ class _Food_HomeState extends State<Food_Home> {
                     width: 10,
                   ),
                   Text(
-                    '20 MINS',
+                    vendortime.toStringAsFixed(1).toString()+' MINS',
                     style: TextStyle(color: Colors.grey[500], fontSize: 10),
                   ),
                   Spacer(),
 
                   InkWell(
                     onTap: () {
-                      if(globalvendors[widget.index].totalReviews != 0) {
-                        if (type == "food") {
-                          API.vendorreviews(
-                              vendorreviewsAPI + globalvendors[widget.index].id
-                                  .toString());
-                          waittofetchvendorsreviews(widget.index);
-                        }
-                        else if(type=="grocery"){
-                          API.vendorreviews(groceryvendorreviewsAPI+globalvendors[widget.index].id.toString());
-                          waittofetchvendorsreviews(widget.index);
-                        }
-                        else if(type=="store"){
-                          API.vendorreviews(storevendorreviewsAPI+globalvendors[widget.index].id.toString());
-                          waittofetchvendorsreviews(widget.index);
-                        }
+                      if(clickstatus)
+                      {
 
+                        if(globalvendors[widget.index].totalReviews != 0) {
+                          clickstatus=false;
+                          if (type == "food") {
+                            API.vendorreviews(
+                                vendorreviewsAPI + globalvendors[widget.index].id
+                                    .toString());
+                            waittofetchvendorsreviews(widget.index);
+                          }
+                          else if(type=="grocery"){
+                            API.vendorreviews(groceryvendorreviewsAPI+globalvendors[widget.index].id.toString());
+                            waittofetchvendorsreviews(widget.index);
+                          }
+                          else if(type=="store"){
+                            API.vendorreviews(storevendorreviewsAPI+globalvendors[widget.index].id.toString());
+                            waittofetchvendorsreviews(widget.index);
+                          }
+
+                        }
                       }
+
                     },
                     child: Container(
                       child: Row(
@@ -404,13 +688,13 @@ class _Food_HomeState extends State<Food_Home> {
               ),
               Padding(
                 padding: const EdgeInsets.all(15.0),
-                child: SearchBarfood(),
+                child: _SearchBar(),
               ),
               Container(
                 color: Colors.white,
                 constraints: BoxConstraints.expand(height: 60),
                 child: TabBar(
-                  //controller: _tabController,
+                  controller: _tabController,
                   isScrollable: true,
                   tabs: List.generate(
                     globalproductType.length,
@@ -435,12 +719,14 @@ class _Food_HomeState extends State<Food_Home> {
               Expanded(
                 child: Container(
                   child: TabBarView(
+                    //controller: _tabController,
+                    physics: NeverScrollableScrollPhysics(),
                     children: List.generate(
                       globalproductType.length,
                           (i) => SingleChildScrollView(
                         child: Container(
                           height: MediaQuery.of(context).size.height / 1.8,
-                          child: globalproductType[i].product.length == null
+                          child: globalproductType[i].product.isEmpty
                               ? Container(
                             padding: EdgeInsets.only(bottom: 100),
                             child: Center(
@@ -451,223 +737,329 @@ class _Food_HomeState extends State<Food_Home> {
                           )
                               : Container(
                             width: MediaQuery.of(context).size.width,
-                            child: ListView.builder(
-                                padding: EdgeInsets.only(bottom: 60),
-                                scrollDirection: Axis.vertical,
-                                itemCount:
-                                globalproductType[i].product.length,
-                                itemBuilder: (_, index) {
-                                  return InkWell(
-                                    // onTap: ontap,
-                                    child: Container(
-                                        color: Colors.white,
-                                        padding: EdgeInsets.only(left: 10,right: 10,top: 10),
-                                        child: Column(
-                                          // mainAxisSize:
-                                          //     MainAxisSize.min,
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          crossAxisAlignment: CrossAxisAlignment.center,
-                                          children: <Widget>[
-                                            Row(
-                                              children: [
-                                                Padding(
-                                                  padding:
-                                                  EdgeInsets.only(
-                                                      left: 0.0,
-                                                      top: 5),
-                                                  child: Container(
-                                                    height: 85,
-                                                    width: 85,
-                                                    decoration:
-                                                    BoxDecoration(
-                                                        image:
-                                                        DecorationImage(
-                                                          fit:
-                                                          BoxFit.fill,
+                            child: RefreshIndicator(
+                              child: ListView.builder(
+                                  padding: EdgeInsets.only(bottom: 60),
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: _filteredList.length,
+                                  itemBuilder: (_, index) {
+                                    return InkWell(
+                                      // onTap: ontap,
+                                      child: Container(
+                                          color: Colors.white,
+                                          padding: EdgeInsets.only(left: 10,right: 10,top: 10),
+                                          child: Column(
+                                            // mainAxisSize:
+                                            //     MainAxisSize.min,
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            crossAxisAlignment: CrossAxisAlignment.center,
+                                            children: <Widget>[
+                                              Row(
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                    EdgeInsets.only(
+                                                        left: 0.0,
+                                                        top: 5),
+                                                    child: Container(
+                                                      height: 85,
+                                                      width: 85,
+                                                      decoration:
+                                                      BoxDecoration(
                                                           image:
-                                                          NetworkImage(
-                                                            globalproductType[
-                                                            i]
-                                                                .product[
-                                                            index]
-                                                                .image,
-                                                          ),
-                                                        )),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                  const EdgeInsets
-                                                      .only(
-                                                      top: 5,
-                                                      left: 10),
-                                                  child: Column(
-                                                    mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .start,
-                                                    crossAxisAlignment:
-                                                    CrossAxisAlignment
-                                                        .start,
-                                                    children: [
-                                                      Text(
-                                                          globalproductType[
-                                                          i]
-                                                              .product[
-                                                          index]
-                                                              .name,
-                                                          style: AppFonts
-                                                              .monmblack),
-                                                      Padding(
-                                                        padding:
-                                                        EdgeInsets
-                                                            .only(
-                                                          top: 4.0,
-                                                        ),
-                                                        child: Text(
-                                                          "\$ " +
-                                                              globalproductType[i]
-                                                                  .product[index]
-                                                                  .price
-                                                                  .toString(),
-                                                          textAlign:
-                                                          TextAlign
-                                                              .left,
-                                                          style: AppFonts
-                                                              .monrblack,
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Spacer(),
-                                                Padding(
-                                                  padding:
-                                                  const EdgeInsets
-                                                      .only(
-                                                      top: 50),
-                                                  child: Container(
-                                                    height: 40,
-                                                    decoration:
-                                                    BoxDecoration(
-                                                      border: Border.all(
-                                                          color: Colors
-                                                              .green[
-                                                          500]),
-                                                      borderRadius:
-                                                      BorderRadius
-                                                          .circular(
-                                                          20),
+                                                          DecorationImage(
+                                                            fit:
+                                                            BoxFit.fill,
+                                                            image:
+                                                            NetworkImage(
+                                                              _filteredList[index]
+                                                                  .image,
+                                                            ),
+                                                          )),
                                                     ),
-                                                    child: Row(
-                                                      children: <
-                                                          Widget>[
-                                                        globalproductType[i]
-                                                            .product[index]
-                                                            .orderquantity !=
-                                                            0
-                                                            ? new IconButton(
-                                                          icon:
-                                                          new Icon(Icons.remove),
-                                                          onPressed: () =>
-                                                              setState(() {
-                                                                globalproductType[i].product[index].orderquantity--;
-                                                                var a = globalfoodcart.where((element) =>
-                                                                element.id ==
-                                                                    globalproductType[i].product[index].id);
-                                                                globalfoodcart.remove(a.first);
-                                                                globalproductType[i].product[index].quantityoncheckout =
-                                                                    a.length - 1;
-                                                                calculateprice();
-                                                                MyApp.sharedPreferences.setString("cartprice",
-                                                                    cartprice.toString());
-                                                                final String
-                                                                encodedData =
-                                                                Products.encodeMusics(globalfoodcart);
-                                                                MyApp.sharedPreferences.setString("foodcart",
-                                                                    encodedData);
-                                                                Food_Home.carttext();
-                                                                //}
-                                                              }),
-                                                        )
-                                                            : new Container(),
-                                                        globalproductType[i]
-                                                            .product[
-                                                        index]
-                                                            .orderquantity !=
-                                                            0
-                                                            ? new Text(globalproductType[
-                                                        i]
-                                                            .product[
-                                                        index]
-                                                            .orderquantity
-                                                            .toString())
-                                                            : new Container(),
-                                                        new IconButton(
-                                                            icon: new Icon(
-                                                                Icons
-                                                                    .add),
-                                                            onPressed:
-                                                                () {
-
-                                                              if( globalfoodcart.isEmpty || globalfoodcart[0].vendorid.toString() == vendorid.toString())
-                                                              {
-                                                                setState(
-                                                                        () {
-                                                                      globalproductType[i]
-                                                                          .product[index]
-                                                                          .orderquantity++;
-
-                                                                      globalfoodcart
-                                                                          .add(globalproductType[i].product[index]);
-
-                                                                      var a = globalfoodcart.where((element) =>
-                                                                      element.id ==
-                                                                          globalproductType[i].product[index].id);
-
-                                                                      if (a.length !=
-                                                                          0) {
-                                                                        globalproductType[i].product[index].quantityoncheckout =
-                                                                            a.length;
-                                                                      }
-
-                                                                      calculateprice();
-                                                                      MyApp.sharedPreferences.setString(
-                                                                          "cartprice",
-                                                                          cartprice.toString());
-
-                                                                      final String
-                                                                      encodedData =
-                                                                      Products.encodeMusics(globalfoodcart);
-                                                                      MyApp.sharedPreferences.setString(
-                                                                          "foodcart",
-                                                                          encodedData);
-
-                                                                      setState(
-                                                                              () {
-                                                                            Food_Home.carttext();
-                                                                          });
-                                                                    }
-                                                                  //}
-                                                                );
-                                                              }
-                                                              else{
-                                                                showAlertDialogcart();
-                                                              }
-
-                                                            }),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                    const EdgeInsets
+                                                        .only(
+                                                        top: 5,
+                                                        left: 10),
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .start,
+                                                      crossAxisAlignment:
+                                                      CrossAxisAlignment
+                                                          .start,
+                                                      children: [
+                                                        Text(
+                                                            _filteredList[index]
+                                                                .name,
+                                                            style: AppFonts
+                                                                .monmblack),
+                                                        Padding(
+                                                          padding:
+                                                          EdgeInsets
+                                                              .only(
+                                                            top: 4.0,
+                                                          ),
+                                                          child: Text(
+                                                            "\$ " +
+                                                                _filteredList[index]
+                                                                    .price
+                                                                    .toString(),
+                                                            textAlign:
+                                                            TextAlign
+                                                                .left,
+                                                            style: AppFonts
+                                                                .monrblack,
+                                                          ),
+                                                        ),
                                                       ],
                                                     ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                            Divider(
-                                              thickness: 1,
-                                            ),
-                                          ],
-                                        )),
-                                  );
-                                }),
+                                                  Spacer(),
+                                                  Padding(
+                                                    padding:
+                                                    const EdgeInsets
+                                                        .only(
+                                                        top: 50),
+                                                    child: Container(
+                                                      height: 40,
+                                                      decoration:
+                                                      BoxDecoration(
+                                                        border: Border.all(
+                                                            color: Colors
+                                                                .green[
+                                                            500]),
+                                                        borderRadius:
+                                                        BorderRadius
+                                                            .circular(
+                                                            20),
+                                                      ),
+                                                      child: Row(
+                                                        children: <
+                                                            Widget>[
+                                                          _filteredList[index]
+                                                              .orderquantity !=
+                                                              0
+                                                              ? new IconButton(
+                                                            icon:
+                                                            new Icon(Icons.remove),
+                                                            onPressed: () =>
+                                                                setState(() {
+                                                                  _filteredList[index].orderquantity--;
+                                                                  var a;
+                                                                  if(type == 'food'){
+                                                                    a = globalfoodcart.where((element) =>
+                                                                    element.id ==
+                                                                        _filteredList[index].id);
+
+                                                                    globalfoodcart.remove(a.first);
+                                                                  }
+                                                                  else if(type == 'grocery'){
+                                                                    a = globalgrocerycart.where((element) =>
+                                                                    element.id ==
+                                                                        _filteredList[index].id);
+
+                                                                    globalgrocerycart.remove(a.first);
+                                                                  }
+                                                                  else if(type == 'store'){
+                                                                    a = globalstorecart.where((element) =>
+                                                                    element.id ==
+                                                                        _filteredList[index].id);
+
+                                                                    globalstorecart.remove(a.first);
+                                                                  }
+
+                                                                  globalproductType[i].product[index].quantityoncheckout =
+                                                                      a.length - 1;
+
+                                                                  calculateprice();
+
+                                                                  if(type == 'food'){
+                                                                    SplashTest.sharedPreferences.setString("cartprice",
+                                                                        cartprice.toString());
+                                                                    final String
+                                                                    encodedData =
+                                                                    Products.encodeMusics(globalfoodcart);
+                                                                    SplashTest.sharedPreferences.setString("foodcart",
+                                                                        encodedData);
+                                                                    Food_Home.carttext();
+                                                                  }
+                                                                  else if(type == 'grocery'){
+
+                                                                    SplashTest.sharedPreferences.setString("grocerycartprice",
+                                                                        grocerycartprice.toString());
+                                                                    final String
+                                                                    encodedData =
+                                                                    Products.encodeMusics(globalgrocerycart);
+                                                                    SplashTest.sharedPreferences.setString("grocerycart",
+                                                                        encodedData);
+                                                                    Food_Home.carttext();
+                                                                  }
+                                                                  else if(type == 'store'){
+                                                                    SplashTest.sharedPreferences.setString("storecartprice",
+                                                                        storecartprice.toString());
+                                                                    final String
+                                                                    encodedData =
+                                                                    Products.encodeMusics(globalstorecart);
+                                                                    SplashTest.sharedPreferences.setString("storecart",
+                                                                        encodedData);
+                                                                    Food_Home.carttext();
+                                                                  }
+                                                                  //}
+                                                                }),
+                                                          )
+                                                              : new Container(),
+                                                          _filteredList[
+                                                          index]
+                                                              .orderquantity !=
+                                                              0
+                                                              ? new Text(_filteredList[
+                                                          index]
+                                                              .orderquantity
+                                                              .toString())
+                                                              : new Container(),
+                                                          new IconButton(
+                                                              icon: new Icon(
+                                                                  Icons.add),
+                                                              onPressed:
+                                                                  () {
+                                                                var setcart;
+
+                                                                if(type == 'food'){
+                                                                  setcart = globalfoodcart;
+                                                                }
+                                                                else if(type == 'grocery'){
+                                                                  setcart = globalgrocerycart;
+
+                                                                }
+                                                                else if(type == 'store'){
+
+                                                                  setcart = globalstorecart;
+
+                                                                }
+
+                                                                if( setcart.isEmpty || setcart[0].vendorid.toString() == vendorid.toString())
+                                                                {
+                                                                  setState(
+                                                                          () {
+                                                                        _filteredList[index]
+                                                                            .orderquantity++;
+
+                                                                        var a;
+
+                                                                        if(type == 'food'){
+                                                                          globalfoodcart
+                                                                              .add(_filteredList[index]);
+
+                                                                          a = globalfoodcart.where((element) =>
+                                                                          element.id ==
+                                                                              _filteredList[index].id);
+
+                                                                        }
+                                                                        else if(type == 'grocery'){
+
+                                                                          globalgrocerycart
+                                                                              .add(_filteredList[index]);
+
+                                                                          a = globalgrocerycart.where((element) =>
+                                                                          element.id ==
+                                                                              _filteredList[index].id);
+                                                                        }
+                                                                        else if(type == 'store'){
+
+                                                                          globalstorecart
+                                                                              .add(_filteredList[index]);
+
+                                                                          a = globalstorecart.where((element) =>
+                                                                          element.id ==
+                                                                              _filteredList[index].id);
+
+                                                                        }
+
+                                                                        if (a.length !=
+                                                                            0) {
+                                                                          _filteredList[index].quantityoncheckout =
+                                                                              a.length;
+                                                                        }
+                                                                        calculateprice();
+                                                                        if(type == 'food'){
+
+                                                                          SplashTest.sharedPreferences.setString(
+                                                                              "cartprice",
+                                                                              cartprice.toString());
+
+                                                                          final String
+                                                                          encodedData =
+                                                                          Products.encodeMusics(globalfoodcart);
+                                                                          SplashTest.sharedPreferences.setString(
+                                                                              "foodcart",
+                                                                              encodedData);
+
+                                                                          Food_Home.carttext();
+                                                                        }
+                                                                        else if(type == 'grocery'){
+
+
+                                                                          SplashTest.sharedPreferences.setString(
+                                                                              "grocerycartprice",
+                                                                              grocerycartprice.toString());
+
+                                                                          final String
+                                                                          encodedData =
+                                                                          Products.encodeMusics(globalgrocerycart);
+                                                                          SplashTest.sharedPreferences.setString(
+                                                                              "grocerycart",
+                                                                              encodedData);
+
+                                                                          Food_Home.carttext();
+
+                                                                        }
+                                                                        else if(type == 'store'){
+
+
+                                                                          SplashTest.sharedPreferences.setString(
+                                                                              "storecartprice",
+                                                                              storecartprice.toString());
+
+                                                                          final String
+                                                                          encodedData =
+                                                                          Products.encodeMusics(globalstorecart);
+                                                                          SplashTest.sharedPreferences.setString(
+                                                                              "storecart",
+                                                                              encodedData);
+
+                                                                          Food_Home.carttext();
+
+                                                                        }
+
+                                                                      }
+                                                                    //}
+                                                                  );
+                                                                }
+                                                                else{
+                                                                  showAlertDialogcart();
+                                                                }
+
+                                                              }),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                              Divider(
+                                                thickness: 1,
+                                              ),
+                                            ],
+                                          )),
+                                    );
+                                  }),
+                              onRefresh: _refreshLocalGallery,
+                              color: Colors.green,
+                            ),
                           ),
                         ),
                       ),
@@ -682,7 +1074,7 @@ class _Food_HomeState extends State<Food_Home> {
 
       ),
       bottomNavigationBar: Container(
-        color: Colors.green[200],
+        color: Colors.green[400],
         height: 60,
         width: MediaQuery.of(context).size.width,
         child: BottomAppBar(
@@ -711,7 +1103,7 @@ class _Food_HomeState extends State<Food_Home> {
                     alignment: Alignment.center,
                     child: Text(
                       'View Cart',
-                      style: TextStyle(color: Colors.green),
+                      style: TextStyle(fontWeight:FontWeight.w400,color: Colors.green),
                     ),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -733,5 +1125,9 @@ class _Food_HomeState extends State<Food_Home> {
         ),
       ),
     );
+  }
+  Future<Null> _refreshLocalGallery() async{
+    getlist();
+    print("hehehheh hahahah");
   }
 }

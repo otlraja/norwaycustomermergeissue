@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:norwayfinalcustomer/Component/Color/color.dart';
 import 'package:norwayfinalcustomer/Component/Style/style.dart';
 import 'package:norwayfinalcustomer/foodModule/Screen/foodcheckout.dart';
@@ -24,6 +25,7 @@ class _LoginState extends State<Loginapi> {
   TextStyle style = TextStyle(fontFamily: 'Montserrat', fontSize: 20.0);
 
   ProgressDialog pr;
+  var clickstatus = true ;
 
 
   @override
@@ -32,34 +34,33 @@ class _LoginState extends State<Loginapi> {
     super.initState();
   }
 
-
+  set(){}
 
   void waittologin() async {
     await Future.delayed(const Duration(seconds: 1), () {
       if(API.success == 'true'){
         pr.hide();
+        clickstatus=true;
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (context) => FoodCheckout()));
+                builder: (context) => FoodCheckout(set)));
       }
       else if(API.success == 'error'){
+        clickstatus=true;
         pr.hide();
-        // Get.snackbar(
-        //   "DELETE",
-        //   "The email has already been taken.",
-        //   icon: Icon(Icons.delete),
-        //   shouldIconPulse: true,
-        //   barBlur: 20,
-        //   dismissDirection: SnackDismissDirection.HORIZONTAL,
-        //   isDismissible: true,
-        //   duration: Duration(seconds: 4),
-        // );
+        Fluttertoast.showToast(
+            msg: "'Incorrect Email and Password'",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            timeInSecForIosWeb: 3,
+            backgroundColor: Colors.green,
+            textColor: Colors.white,
+            fontSize: 16.0);
       }
       else {
         waittologin();
       }
-
     });
 
   }
@@ -76,10 +77,17 @@ class _LoginState extends State<Loginapi> {
         minWidth: MediaQuery.of(context).size.width,
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () {
+
           if(_formKey.currentState.validate()){
-            pr.show();
-            API.login(loginAPI,  _emailController.text, _passwordController.text,);
-            waittologin();
+            if(clickstatus)
+            {
+              clickstatus=false;
+              pr.show();
+              API.login(loginAPI,  _emailController.text, _passwordController.text,);
+              waittologin();
+            }
+
+
             //_signInWithEmailAndPassword();
           }
         },
@@ -98,9 +106,9 @@ class _LoginState extends State<Loginapi> {
             decoration: new BoxDecoration(
                 gradient: new LinearGradient(
                     colors: [
+                      Colors.black,
+                      Colors.black,
 
-                      AppColors.silver,
-                      Colors.black87,
                     ],
                     stops: [0.0, 1.0],
                     begin: FractionalOffset.topCenter,
@@ -124,7 +132,7 @@ class _LoginState extends State<Loginapi> {
                       height:200,
                       width: 200,
 
-                      child: Image.asset('assets/logo1.jpg',width: 200,height: 200,),
+                      child: Image.asset('assets/logo-AK-Booker (1).png',width: 200,height: 200,),
 
                     ),
 
@@ -163,6 +171,7 @@ class _LoginState extends State<Loginapi> {
                       width: 350,
                       height: 50,
                       child:TextFormField(
+
                         controller: _passwordController,
                         validator: (String value) {
                           if (value.isEmpty) {
@@ -171,6 +180,7 @@ class _LoginState extends State<Loginapi> {
                           return null;
                         },
                         decoration: InputDecoration(
+
                           suffixIcon: Icon(Icons.remove_red_eye, color: AppColors.lightgrey,),
                           filled: true,
                           border: new OutlineInputBorder(
@@ -207,27 +217,27 @@ class _LoginState extends State<Loginapi> {
                     SizedBox(
                       height: 15.0,
                     ),
-                    Center(
-                      child: Container(
+                    Container(
 
-                        height: 20,
-                        width: 200,
-                        child: Row(
-                          children: [
-                            Container(
-                              child: Text('Not have an account?'),
-                            ),
-                            InkWell(
-                              onTap: (){
-                                Navigator.of(context)
-                                    .push(MaterialPageRoute(builder: (_) => Signupapi()));
-                              },
-                              child: Container(
-                                child: Text(' Signup',style: TextStyle(fontSize: 15, fontWeight:FontWeight.w500 ),),
-                              ),
-                            ),
-                          ],
-                        ),
+                      height: 20,
+                      width: 250,
+
+                      child: Row(
+
+                        children: [
+
+                          Text('Not have an account?', style: TextStyle(color: Colors.white)),
+
+                          InkWell(
+                            onTap: (){
+                              Navigator.of(context)
+                                  .push(MaterialPageRoute(builder: (_) => Signupapi()));
+                            },
+
+                            child:Text(' Signup',style: TextStyle(fontSize: 15, fontWeight:FontWeight.w500 , color: Colors.white),),
+
+                          ),
+                        ],
                       ),
                     ),
                   ],

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:norwayfinalcustomer/global.dart';
 import 'package:norwayfinalcustomer/main.dart';
+import 'package:norwayfinalcustomer/testSplash.dart';
 import 'CreditCard.dart';
 import 'foodModule/Widget/Component/Style/style.dart';
 import 'global.dart';
@@ -212,7 +213,7 @@ class _PaymentCardDetailsState extends State<PaymentCardDetails> {
                                             setisselected(index, newValue);
                                             selectedcardindex =
                                                 index.toString();
-                                            MyApp.sharedPreferences.setString(
+                                            SplashTest.sharedPreferences.setString(
                                                 "selectedcardindex",
                                                 selectedcardindex.toString());
                                             widget.getSelectedpayment(

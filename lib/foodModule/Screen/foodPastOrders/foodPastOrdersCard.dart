@@ -39,8 +39,8 @@ class FoodPastOrderscards extends State<FoodPastOrdersCard> {
   }
 
   Function ontap() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (_) => Ridersdetail()));
+    // Navigator.of(context)
+    //     .push(MaterialPageRoute(builder: (_) => Ridersdetail()));
   }
 
   @override
@@ -68,8 +68,13 @@ class FoodPastOrderscards extends State<FoodPastOrdersCard> {
                     width: size.width / 6,
                     child: Padding(
                       padding: const EdgeInsets.only(right: 4.0),
-                      child: Image.asset(
-                        foodPastOrders.image,
+                      child: foodPastOrders.image != null ?
+                      Image.network(
+                        foodPastOrders.image.toString(),
+                        fit: BoxFit.fill,
+                      ):
+                      Image.asset(
+                        'assets/foodVector2.png',
                         fit: BoxFit.fill,
                       ),
                     )),
@@ -108,7 +113,7 @@ class FoodPastOrderscards extends State<FoodPastOrdersCard> {
                       child: Row(
                         children: <Widget>[
                           Container(
-                            width: 100,
+
                             height: 20,
                             child: Text(
                               foodPastOrders.date,
@@ -172,7 +177,7 @@ class FoodPastOrderscards extends State<FoodPastOrdersCard> {
                           width: size.width / 5.5,
                           height: 17,
                           child: Text(
-                            'Delivered',
+                            foodPastOrders.status.toString(),
                             textAlign: TextAlign.end,
                             style: TextStyle(
                                 fontFamily: 'monm',

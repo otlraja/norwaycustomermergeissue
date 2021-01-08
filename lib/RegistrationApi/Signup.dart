@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:norwayfinalcustomer/API/API.dart';
 import 'package:norwayfinalcustomer/Component/Color/color.dart';
 import 'package:norwayfinalcustomer/Component/Style/style.dart';
@@ -23,6 +24,7 @@ class _SignupState extends State<Signupapi> {
 
 
   ProgressDialog pr;
+  var clickstatus=true;
 
 
   @override
@@ -41,17 +43,9 @@ class _SignupState extends State<Signupapi> {
   void waittosignup() async {
     await Future.delayed(const Duration(seconds: 1), () {
       if(API.success == 'true'){
+
         pr.hide();
-        // Get.snackbar(
-        //   "DELETE",
-        //   "User successfully created",
-        //   icon: Icon(Icons.delete),
-        //   shouldIconPulse: true,
-        //   barBlur: 20,
-        //   dismissDirection: SnackDismissDirection.HORIZONTAL,
-        //   isDismissible: true,
-        //   duration: Duration(seconds: 4),
-        // );
+        clickstatus=true;
         Navigator.push(
             context,
             MaterialPageRoute(
@@ -59,6 +53,7 @@ class _SignupState extends State<Signupapi> {
       }
       else if(API.success == 'error'){
         pr.hide();
+        clickstatus=true;
         // Get.snackbar(
         //   "DELETE",
         //   "The email has already been taken.",
@@ -90,12 +85,15 @@ class _SignupState extends State<Signupapi> {
         padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
         onPressed: () {
           if(_formKey.currentState.validate()){
-            pr.show();
-            API.signup(signupAPI, _displayName.text, _emailController.text, _passwordController.text, _phoneController.text);
-            waittosignup();
-            print("ab");
-          }else{
-            print('bc');
+            if(clickstatus)
+            {
+              clickstatus=false;
+              pr.show();
+              API.signup(signupAPI, _displayName.text, _emailController.text, _passwordController.text, _phoneController.text);
+              waittosignup();
+              print("ab");
+            }
+
           }
         },
         child: Text("Signup",
@@ -112,9 +110,9 @@ class _SignupState extends State<Signupapi> {
             decoration: new BoxDecoration(
                 gradient: new LinearGradient(
                     colors: [
+                      Colors.black,
+                      Colors.black,
 
-                      AppColors.silver,
-                      Colors.black87,
                     ],
                     stops: [0.0, 1.0],
                     begin: FractionalOffset.topCenter,
@@ -135,7 +133,7 @@ class _SignupState extends State<Signupapi> {
                     Container(
                       height:200,
                       width: 200,
-                      child: Image.asset('assets/logo1.jpg',width: 200,height: 200,),
+                      child: Image.asset('assets/logo-AK-Booker (1).png',width: 200,height: 200,),
                     ),
                     SizedBox(height: 20.0),
                     Container(
@@ -153,7 +151,7 @@ class _SignupState extends State<Signupapi> {
                           return null;
                         },
                         decoration: InputDecoration(
-                          suffixIcon: Icon(Icons.email, color: AppColors.lightgrey,),
+                          suffixIcon: Icon(Icons.person, color: AppColors.lightgrey,),
                           filled: true,
                           border: new OutlineInputBorder(
 
@@ -189,7 +187,7 @@ class _SignupState extends State<Signupapi> {
                           return null;
                         },
                         decoration: InputDecoration(
-                          suffixIcon: Icon(Icons.remove_red_eye, color: AppColors.lightgrey,),
+                          suffixIcon: Icon(Icons.email, color: AppColors.lightgrey,),
                           filled: true,
                           border: new OutlineInputBorder(
 
@@ -217,6 +215,7 @@ class _SignupState extends State<Signupapi> {
                       height: 50,
 
                       child:TextFormField(
+                        keyboardType: TextInputType.number,
                         controller: _phoneController,
                         validator: (String value) {
                           if (value.isEmpty) {
@@ -225,7 +224,7 @@ class _SignupState extends State<Signupapi> {
                           return null;
                         },
                         decoration: InputDecoration(
-                          suffixIcon: Icon(Icons.remove_red_eye, color: AppColors.lightgrey,),
+                          suffixIcon: Icon(Icons.call_sharp, color: AppColors.lightgrey,),
                           filled: true,
                           border: new OutlineInputBorder(
 
@@ -261,7 +260,7 @@ class _SignupState extends State<Signupapi> {
                           return null;
                         },
                         decoration: InputDecoration(
-                          suffixIcon: Icon(Icons.email, color: AppColors.lightgrey,),
+                          suffixIcon: Icon(Icons.remove_red_eye, color: AppColors.lightgrey,),
                           filled: true,
                           border: new OutlineInputBorder(
 

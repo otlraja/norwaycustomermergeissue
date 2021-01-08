@@ -1,16 +1,9 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:norwayfinalcustomer/HotelsModule/widgets/search_bar.dart';
-import 'package:norwayfinalcustomer/foodModule/MOdel/CategoryList.dart';
-import 'package:norwayfinalcustomer/foodModule/Widget/Component/Color/color.dart';
-import 'package:norwayfinalcustomer/foodModule/Widget/Component/Style/style.dart';
-import 'package:norwayfinalcustomer/foodModule/Widget/SearchBarfood.dart';
-import 'package:norwayfinalcustomer/foodModule/foodNavigation.dart';
-
+import 'package:norwayfinalcustomer/API/API.dart';
+import 'package:norwayfinalcustomer/global.dart';
 import 'Food_Profile.dart';
 import 'ResturantSelect.dart';
-import 'foodHome.dart';
 import 'foodTab.dart';
 class CategoryFood extends StatefulWidget {
   @override
@@ -18,26 +11,26 @@ class CategoryFood extends StatefulWidget {
 }
 
 class _CategoryFoodState extends State<CategoryFood> {
-
-int index=0;
-int _currentIndex = 0;
-final List<Widget> _children = [
-  ResturantSelect(),
-  FoodTab(), //Grocery Orde
-  // rs
-  FoodProfile(), // Grocery earning
-];
-void onTabTapped(int index) {
-  setState(() {
-    _currentIndex = index;
-    if (_currentIndex == index) {
-      setState(() {});
-    }
-  });
-}
-var _value='Home';
+  var bool = true;
+  int index=0;
+  int _currentIndex = 0;
+  final List<Widget> _children = [
+    ResturantSelect(),
+    FoodTab(), //Grocery Orde
+    // rs
+    FoodProfile(), // Grocery earning
+  ];
+  void onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+      if (_currentIndex == index) {
+        setState(() {});
+      }
+    });
+  }
   @override
   Widget build(BuildContext context) {
+    getorders();
     return Scaffold(
 
         bottomNavigationBar: BottomNavyBar(
@@ -66,7 +59,7 @@ var _value='Home';
             BottomNavyBarItem(
               icon: Icon(Icons.person),
               title: Text(
-                'Profile',
+                  'Profile',
                   style: TextStyle(color: Colors.grey[500])
               ),
               activeColor: Colors.green[500],
@@ -80,4 +73,20 @@ var _value='Home';
     );
   }
 
+  void getorders(){
+    // if(usertoken != null && bool && type == 'food') {
+    //   bool = false;
+    //   API.comleteorder(foodcomplete+userid);
+    // }
+
+    if(usertoken != null && bool && type == 'grocery') {
+      bool = false;
+      API.comleteorder(grocerycomplete+userid);
+    }
+
+    if(usertoken != null && bool && type == 'store') {
+      bool = false;
+      API.comleteorder(storecomplete+userid);
+    }
+  }
 }

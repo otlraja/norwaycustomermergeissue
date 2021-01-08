@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:norwayfinalcustomer/firstpage.dart';
 import 'package:norwayfinalcustomer/foodModule/Widget/Component/Style/style.dart';
 
+import '../../global.dart';
+import '../../testSplash.dart';
 import 'FoodEarningView.dart';
 import 'FoodReview.dart';
 import 'Food_StoreProfile.dart';
 import 'Food_Support.dart';
 
 import 'Food_TermsCondition.dart';
-
 
 class FoodProfile extends StatefulWidget {
   @override
@@ -21,19 +22,22 @@ class _FoodProfileState extends State<FoodProfile> {
     var size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
-        appBar: AppBar(
-        title: Text(
-        'My Profile',
-        style: AppFonts.monmbold1,
+            appBar: AppBar(
+              title: Text(
+                'My Profile',
+                style: AppFonts.monmbold1,
+
+              ),
+              elevation: 0,
             ),
-        ),
             backgroundColor: Colors.grey[100],
             body: Column(children: <Widget>[
               Container(
                 child: Column(
                   children: <Widget>[
-                    SizedBox(height: 10,),
-
+                    SizedBox(
+                      height: 10,
+                    ),
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -44,23 +48,28 @@ class _FoodProfileState extends State<FoodProfile> {
                       child: Row(
                         children: <Widget>[
                           Container(
-                              height: size.height,
-                              width: size.width / 3,
-                              child: Padding(
-                                padding: const EdgeInsets.all(15),
-                                child: ClipRRect(
+                            height: size.height,
+                            width: size.width / 3,
+                            child: Padding(
+                              padding: const EdgeInsets.all(15),
+                              child: ClipRRect(
                                   borderRadius: BorderRadius.circular(12.0),
-                                  child: Image.asset(
-                                    'assets/tshirt.jpg',
+                                  child: userimage != null
+                                      ? Image.network(
+                                    userimage,
                                     fit: BoxFit.fill,
-                                  ),
-                                ),
-                              )),
+                                  )
+                                      : Image.asset(
+                                    "assets/profile1.png",
+                                    fit: BoxFit.fill,
+                                  )),
+                            ),
+                          ),
                           Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Text('Omar', style: AppFonts.monmbold),
+                              Text(username != null ? username : 'Omar', style: AppFonts.monmbold),
                               Row(
                                 children: <Widget>[
                                   Icon(
@@ -97,65 +106,6 @@ class _FoodProfileState extends State<FoodProfile> {
                           height: size.height / 1.7,
                           child: Column(
                             children: <Widget>[
-                              // Container(
-                              //   width: size.width,
-                              //   height: size.height / 10,
-                              //   child: InkWell(
-                              //     onTap: () {
-                              //       Navigator.of(context).push(
-                              //           MaterialPageRoute(
-                              //               builder: (_) => FoodEarningView()));
-                              //     },
-                              //     // child: Row(
-                              //     //   children: <Widget>[
-                              //     //     // Container(
-                              //     //     //   width: 40,
-                              //     //     //   height: 40,
-                              //     //     //   child: Image.asset(
-                              //     //     //       'assets/earninglogo.png',
-                              //     //     //       width: 20,
-                              //     //     //       height: 20),
-                              //     //     // ),
-                              //     //     Padding(
-                              //     //       padding: const EdgeInsets.only(
-                              //     //           left: 12.0, top: 15),
-                              //     //       child: Text(
-                              //     //         'Earnings',
-                              //     //         style: AppFonts.monm,
-                              //     //       ),
-                              //     //     )
-                              //     //   ],
-                              //     // ),
-                              //   ),
-                              // ),
-                              // InkWell(
-                              //   onTap: () {
-                              //     Navigator.of(context).push(MaterialPageRoute(
-                              //         builder: (_) => FoodReview()));
-                              //   },
-                              //   child: Container(
-                              //     width: size.width,
-                              //     height: size.height / 10,
-                              //     child: Row(
-                              //       children: <Widget>[
-                              //         Container(
-                              //           width: 40,
-                              //           height: 40,
-                              //           child: Image.asset(
-                              //               'assets/reviewlogo.JPG',
-                              //               width: 20,
-                              //               height: 20),
-                              //         ),
-                              //         // Padding(
-                              //         //   padding:
-                              //         //       const EdgeInsets.only(left: 12.0),
-                              //         //   child: Text('Saved Address',
-                              //         //       style: AppFonts.monm),
-                              //         // )
-                              //       ],
-                              //     ),
-                              //   ),
-                              // ),
                               InkWell(
                                 onTap: () {
                                   Navigator.of(context).push(MaterialPageRoute(
@@ -170,11 +120,11 @@ class _FoodProfileState extends State<FoodProfile> {
                                         width: 40,
                                         height: 40,
                                         child:
-                                            Image.asset('assets/termslogo.JPG'),
+                                        Image.asset('assets/termslogo.JPG'),
                                       ),
                                       Padding(
                                         padding:
-                                            const EdgeInsets.only(left: 12.0),
+                                        const EdgeInsets.only(left: 12.0),
                                         child: Text('Terms & Conditions',
                                             style: AppFonts.monm),
                                       )
@@ -200,7 +150,7 @@ class _FoodProfileState extends State<FoodProfile> {
                                       ),
                                       Padding(
                                         padding:
-                                            const EdgeInsets.only(left: 12.0),
+                                        const EdgeInsets.only(left: 12.0),
                                         child: Text('Support',
                                             style: AppFonts.monm),
                                       )
@@ -210,11 +160,23 @@ class _FoodProfileState extends State<FoodProfile> {
                               ),
                               InkWell(
                                 onTap: () {
+                                  usertoken=null;
+                                  username =  null;
+                                  useremail =  null;
+                                  userid =  null;
+                                  userphone =  null;
+                                  userimage =  null;
+                                  SplashTest.sharedPreferences.setString("usertoken", null);
+                                  SplashTest.sharedPreferences.setString("username", null);
+                                  SplashTest.sharedPreferences.setString("useremail", null);
+                                  SplashTest.sharedPreferences.setString("userid",  null);
+                                  SplashTest.sharedPreferences.setString("userphone",  null);
+                                  SplashTest.sharedPreferences.setString("userimage",  null);
+
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              Firstpage()));
+                                          builder: (context) => Firstpage()));
                                 },
                                 child: Container(
                                   width: size.width,
@@ -224,14 +186,14 @@ class _FoodProfileState extends State<FoodProfile> {
                                       Container(
                                         width: 40,
                                         height: 40,
-                                        child:
-                                            Image.asset('assets/logoutlogo.JPG'),
+                                        child: Image.asset(
+                                            'assets/logoutlogo.JPG'),
                                       ),
                                       Padding(
                                         padding:
-                                            const EdgeInsets.only(left: 12.0),
-                                        child:
-                                            Text('Logout', style: AppFonts.monm),
+                                        const EdgeInsets.only(left: 12.0),
+                                        child: Text('Logout',
+                                            style: AppFonts.monm),
                                       )
                                     ],
                                   ),

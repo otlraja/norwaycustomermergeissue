@@ -52,13 +52,13 @@ class FoodNewOrdercards extends State<FoodNewOrderCard> {
     var size = MediaQuery.of(context).size;
     var _counter;
     return Padding(
-      padding: const EdgeInsets.only(bottom: 6),
+      padding: const EdgeInsets.only(bottom: 6,left: 5,right: 5),
       child: InkWell(
         // onTap: ontap,
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(0.0),
+            borderRadius: BorderRadius.circular(5),
           ),
           width: size.width,
           height: size.height / 7.4,
@@ -72,8 +72,11 @@ class FoodNewOrdercards extends State<FoodNewOrderCard> {
                     width: size.width / 6,
                     child: Padding(
                       padding: const EdgeInsets.only(right: 4.0),
-                      child: Image.asset(
-                        foodNewOrder.image,
+                      child: foodNewOrder.venimg != null ?
+                      Image.network(
+                        foodNewOrder.venimg.toString(),
+                      ): Image.asset(
+                        'assets/foodVector2.png',
                         fit: BoxFit.fill,
                       ),
                     )),
@@ -91,7 +94,7 @@ class FoodNewOrdercards extends State<FoodNewOrderCard> {
                         Container(
                           width: size.width / 2.5,
                           child: Text(
-                            foodNewOrder.name,
+                            foodNewOrder.venname,
                             style: AppFonts.monm,
                           ),
                         ),
@@ -112,7 +115,7 @@ class FoodNewOrdercards extends State<FoodNewOrderCard> {
                       child: Row(
                         children: <Widget>[
                           Container(
-                            width: 100,
+
                             height: 20,
                             child: Text(
                               foodNewOrder.date,
@@ -177,7 +180,7 @@ class FoodNewOrdercards extends State<FoodNewOrderCard> {
                           width: size.width / 5.5,
                           height: 17,
                           child: Text(
-                            'pending',
+                            foodNewOrder.status.toString(),
                             textAlign: TextAlign.end,
                             style: TextStyle(
                                 fontFamily: 'monm',

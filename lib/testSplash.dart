@@ -62,9 +62,9 @@ class _SplashTestState extends State<SplashTest> with TickerProviderStateMixin{
     await Geocoder.local.findAddressesFromCoordinates(coordinates);
     var first = addresses.first;
     print("${first.featureName} : ${first.addressLine}");
-    // usercurraddr = first.addressLine;
-    // usercurrlat = lat;
-    // usercurrlng = lng;
+    usercurraddr = first.addressLine;
+    usercurrlat = lat;
+    usercurrlng = lng;
     //_addressTo = first.addressLine;
   }
   _registerOnFirebase() {

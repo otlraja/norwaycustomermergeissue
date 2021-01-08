@@ -62,7 +62,7 @@ class FoodCheckOutCards extends State<FoodCheckOutCard> {
                     ),
 
                     Container(
-                      height: 90,
+                      height: 140,
                       child: ListView.builder(
                           scrollDirection: Axis.vertical,
                           itemCount: foodcheckoutt.length,
@@ -110,121 +110,7 @@ class FoodCheckOutCards extends State<FoodCheckOutCard> {
                     ),
 
 
-                    // Container(
-                    //   child: Column(
-                    //     mainAxisAlignment: MainAxisAlignment.start,
-                    //     crossAxisAlignment: CrossAxisAlignment.start,
-                    //     children: <Widget>[
-                    //       Container(
-                    //         child: Text(
-                    //           foodcheckoutt.name,
-                    //           style: AppFonts.monmgrey12,
-                    //         ),
-                    //       ),
-                    //       Container(
-                    //         child: Row(
-                    //           children: <Widget>[
-                    //             Text(
-                    //               foodcheckoutt.quantity,
-                    //             ),
-                    //             Container(
-                    //               child: Spacer(),
-                    //             ),
-                    //             Padding(
-                    //               padding: const EdgeInsets.only(right: 15),
-                    //               child: Text(
-                    //                 foodcheckoutt.price,
-                    //                 style: AppFonts.monmbold,
-                    //               ),
-                    //             ),
-                    //             Divider(
-                    //               thickness: 0.5,
-                    //             ),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
-                    // Container(
-                    //   child: Divider(
-                    //     thickness: 0.5,
-                    //   ),
-                    // ),
-                    // Container(
-                    //   child: Column(
-                    //     mainAxisAlignment: MainAxisAlignment.start,
-                    //     crossAxisAlignment: CrossAxisAlignment.start,
-                    //     children: <Widget>[
-                    //       Container(
-                    //         child: Text(
-                    //           foodcheckoutt.name,
-                    //           style: AppFonts.monmbold,
-                    //         ),
-                    //       ),
-                    //       Container(
-                    //         child: Row(
-                    //           children: <Widget>[
-                    //             Text(
-                    //               foodcheckoutt.quantity,
-                    //               style: AppFonts.monm,
-                    //             ),
-                    //             Container(
-                    //               child: Spacer(),
-                    //             ),
-                    //             Padding(
-                    //               padding: const EdgeInsets.only(right: 15),
-                    //               child: Text(
-                    //                 foodcheckoutt.price,
-                    //                 style: AppFonts.monmbold,
-                    //               ),
-                    //             ),
-                    //           ],
-                    //         ),
-                    //       )
-                    //     ],
-                    //   ),
-                    // ),
-                    // Container(
-                    //   child: Divider(
-                    //     thickness: 0.5,
-                    //   ),
-                    // ),
-                    // Container(
-                    //   height: 50,
-                    //   child: Column(
-                    //     mainAxisAlignment: MainAxisAlignment.start,
-                    //     crossAxisAlignment: CrossAxisAlignment.start,
-                    //     children: <Widget>[
-                    //       Container(
-                    //         child: Text(
-                    //           foodcheckoutt.name,
-                    //           style: AppFonts.monmbold,
-                    //         ),
-                    //       ),
-                    //       Container(
-                    //         child: Row(
-                    //           children: <Widget>[
-                    //             Text(
-                    //               foodcheckoutt.quantity,
-                    //               style: AppFonts.monm,
-                    //             ),
-                    //             Container(
-                    //               child: Spacer(),
-                    //             ),
-                    //             Padding(
-                    //               padding: const EdgeInsets.only(right: 15),
-                    //               child: Text(
-                    //                 foodcheckoutt.price,
-                    //                 style: AppFonts.monmbold,
-                    //               ),
-                    //             ),
-                    //           ],
-                    //         ),
-                    //       )
-                    //     ],
-                    //   ),
-                    // ),
+
                   ],
                 ),
               )),

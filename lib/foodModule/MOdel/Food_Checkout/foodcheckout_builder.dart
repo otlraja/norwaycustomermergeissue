@@ -24,17 +24,29 @@ class _FoodCheckoutListEditPageState extends State<FoodCheckoutList> {
   }
 
   var id = new List();
-
+  var showset;
 
   void getcheckoutlist(){
 
     Comparator<Products> priceComparator = (b, a) => a.quantityoncheckout.compareTo(b.quantityoncheckout);
-    globalfoodcart = globalfoodcart..sort(priceComparator);
+
+    if(type == 'food'){
+      showset = globalfoodcart;
+    }
+    else if(type == 'grocery'){
+      showset = globalgrocerycart;
+    }
+    else if(type == 'store'){
+      showset = globalstorecart;
+    }
+
+
+    showset = showset..sort(priceComparator);
     newglobalfoodcart.clear();
-    for(int i = 0; i< globalfoodcart.length; i++){
-      if(!id.contains(globalfoodcart[i].id)){
-        id.add(globalfoodcart[i].id);
-        newglobalfoodcart.add(globalfoodcart[i]);
+    for(int i = 0; i< showset.length; i++){
+      if(!id.contains(showset[i].id)){
+        id.add(showset[i].id);
+        newglobalfoodcart.add(showset[i]);
       }
     }
   }
@@ -50,16 +62,6 @@ class _FoodCheckoutListEditPageState extends State<FoodCheckoutList> {
         child: FoodCheckOutCard(
           foodcheckoutt: newglobalfoodcart,
         ),
-
-        // ListView.builder(
-        //     scrollDirection: Axis.vertical,
-        //     itemCount: globalfoodcart.length,
-        //     itemBuilder: (_, index) {
-        //       return FoodCheckOutCard(
-        //         foodcheckoutt: globalfoodcart[index],
-        //       );
-        //     }
-        //     ),
       );
   }
 }

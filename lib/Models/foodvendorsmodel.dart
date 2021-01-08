@@ -5,8 +5,10 @@ class FoodVendors{
   var address;
   var totalReviews;
   var avgRating;
+  var lat;
+  var lng;
 
-  FoodVendors({this.image, this.name, this.id,this.address, this.totalReviews, this.avgRating});
+  FoodVendors({this.image, this.name, this.id,this.address, this.totalReviews, this.avgRating, this.lat, this.lng});
 
 
 // factory FoodVendors.fromJson(Map<String, dynamic> jsonData) {
