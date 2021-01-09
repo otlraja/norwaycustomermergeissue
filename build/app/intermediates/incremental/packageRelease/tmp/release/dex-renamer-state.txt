@@ -1,4 +1,0 @@
-#Thu Dec 31 20:27:54 PKT 2020
-base.0=/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/app/intermediates/transforms/r8/release/0/classes.dex
-path.0=classes.dex
-renamed.0=classes.dex

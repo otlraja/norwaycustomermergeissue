@@ -10,8 +10,9 @@ class Products implements Comparable<Products>{
   var quantityoncheckout;
   var vendorid;
   var vendorname;
+  var deliverycharges;
 
-  Products({this.image, this.name, this.price, this.id, this.quantity, this.orderquantity, this.quantityoncheckout,this.vendorid, this.vendorname});
+  Products({this.image, this.name, this.price, this.id, this.quantity, this.orderquantity, this.quantityoncheckout,this.vendorid, this.vendorname, this.deliverycharges});
 
 
   factory Products.fromJson(Map<String, dynamic> jsonData) {
@@ -25,6 +26,7 @@ class Products implements Comparable<Products>{
       quantityoncheckout: jsonData['quantityoncheckout'],
       vendorid: jsonData['vendorid'],
       vendorname: jsonData['vendorname'],
+        deliverycharges: jsonData['deliverycharges'],
     );
   }
 
@@ -38,6 +40,7 @@ class Products implements Comparable<Products>{
     'quantityoncheckout': vendors.quantityoncheckout,
     'vendorid': vendors.vendorid,
     'vendorname': vendors.vendorname,
+    'deliverycharges': vendors.deliverycharges,
   };
 
   static String encodeMusics(List<Products> cart) => json.encode(

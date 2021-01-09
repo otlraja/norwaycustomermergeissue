@@ -213,9 +213,8 @@ dagger/multibindings/IntoSet.class
 dagger/multibindings/LongKey.class
 dagger/multibindings/Multibinds.class
 dagger/multibindings/StringKey.class
-io/flutter/FlutterInjector.class
 io/flutter/app/FlutterApplication.class
-io/flutter/embedding/engine/loader/FlutterLoader.class
+io/flutter/view/FlutterMain.class
 javax/annotation/CheckForNull.class
 javax/annotation/CheckForSigned.class
 javax/annotation/CheckReturnValue.class

@@ -327,7 +327,7 @@ class _FoodStoreProfileState extends State<FoodStoreProfile> {
 
                                                   InkWell(
                                                     child: Icon(
-                                                      Icons.upload_file,
+                                                      Icons.file_upload,
                                                       color:
                                                       AppColors.lightgreenColor,
                                                     ),

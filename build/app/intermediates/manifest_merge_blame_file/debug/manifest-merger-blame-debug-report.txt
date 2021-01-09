@@ -12,69 +12,69 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/debug/AndroidManifest.xml:6:5-66
-14-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/debug/AndroidManifest.xml:6:22-64
+14-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/debug/AndroidManifest.xml:6:5-66
+14-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/debug/AndroidManifest.xml:6:22-64
 15    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-15-->[:image_picker] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-80
-15-->[:image_picker] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:7:22-77
+15-->[:image_picker] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-80
+15-->[:image_picker] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:7:22-77
 16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-16-->[:image_picker] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-81
-16-->[:image_picker] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:8:22-78
+16-->[:image_picker] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-81
+16-->[:image_picker] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:8:22-78
 17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-17-->[:connectivity] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-79
-17-->[:connectivity] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:7:22-76
+17-->[:connectivity] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-79
+17-->[:connectivity] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:7:22-76
 18    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-18-->[:connectivity] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-76
-18-->[:connectivity] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:8:22-73
+18-->[:connectivity] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-76
+18-->[:connectivity] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/connectivity/intermediates/library_manifest/debug/AndroidManifest.xml:8:22-73
 19    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-19-->[:location] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/location/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-81
-19-->[:location] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/location/intermediates/library_manifest/debug/AndroidManifest.xml:7:22-78
+19-->[:location] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/location/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-81
+19-->[:location] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/location/intermediates/library_manifest/debug/AndroidManifest.xml:7:22-78
 20    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-20-->[:location] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/location/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-79
-20-->[:location] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/location/intermediates/library_manifest/debug/AndroidManifest.xml:8:22-76
+20-->[:location] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/location/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-79
+20-->[:location] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/location/intermediates/library_manifest/debug/AndroidManifest.xml:8:22-76
 21
 22    <uses-feature
-22-->[com.google.android.gms:play-services-maps:17.0.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/23cc5518a2842de42d517ee74aa79a3e/play-services-maps-17.0.0/AndroidManifest.xml:26:5-28:35
+22-->[com.google.android.gms:play-services-maps:17.0.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/23cc5518a2842de42d517ee74aa79a3e/play-services-maps-17.0.0/AndroidManifest.xml:26:5-28:35
 23        android:glEsVersion="0x00020000"
-23-->[com.google.android.gms:play-services-maps:17.0.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/23cc5518a2842de42d517ee74aa79a3e/play-services-maps-17.0.0/AndroidManifest.xml:27:9-41
+23-->[com.google.android.gms:play-services-maps:17.0.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/23cc5518a2842de42d517ee74aa79a3e/play-services-maps-17.0.0/AndroidManifest.xml:27:9-41
 24        android:required="true" />
-24-->[com.google.android.gms:play-services-maps:17.0.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/23cc5518a2842de42d517ee74aa79a3e/play-services-maps-17.0.0/AndroidManifest.xml:28:9-32
+24-->[com.google.android.gms:play-services-maps:17.0.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/23cc5518a2842de42d517ee74aa79a3e/play-services-maps-17.0.0/AndroidManifest.xml:28:9-32
 25
 26    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
-26-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:24:5-68
-26-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:24:22-65
+26-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:24:5-68
+26-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:24:22-65
 27    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-27-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:26:5-82
-27-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:26:22-79
+27-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:26:5-82
+27-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:26:22-79
 28    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
-28-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:26:5-110
-28-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:26:22-107
+28-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:26:5-110
+28-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:26:22-107
 29
 30    <application
-30-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:3:5-43:19
+30-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:3:5-43:19
 31        android:name="io.flutter.app.FlutterApplication"
-31-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:4:9-57
+31-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:4:9-57
 32        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-32-->[androidx.core:core:1.1.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/e6856c7cff7219f18cbbcc5d8d7cecec/core-1.1.0/AndroidManifest.xml:24:18-86
+32-->[androidx.core:core:1.1.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/e6856c7cff7219f18cbbcc5d8d7cecec/core-1.1.0/AndroidManifest.xml:24:18-86
 33        android:debuggable="true"
 34        android:icon="@mipmap/ic_launcher"
-34-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:6:9-43
+34-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:6:9-43
 35        android:label="norwayfinalcustomer" >
-35-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:5:9-44
+35-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:5:9-44
 36        <activity
-36-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:7:9-35:20
+36-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:7:9-35:20
 37            android:name="com.onetenlogics.norwayfinalcustomer.MainActivity"
-37-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:8:13-41
+37-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:8:13-41
 38            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-38-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:11:13-163
+38-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:11:13-163
 39            android:hardwareAccelerated="true"
-39-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:12:13-47
+39-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:12:13-47
 40            android:launchMode="singleTop"
-40-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:9:13-43
+40-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:9:13-43
 41            android:theme="@style/LaunchTheme"
-41-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:10:13-47
+41-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:10:13-47
 42            android:windowSoftInputMode="adjustResize" >
-42-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:13:13-55
+42-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:13:13-55
 43
 44            <!--
 45                 Specifies an Android theme to apply to this Activity as soon as
@@ -83,11 +83,11 @@
 48                 to determine the Window background behind the Flutter UI.
 49            -->
 50            <meta-data
-50-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:18:13-21:17
+50-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:18:13-21:17
 51                android:name="io.flutter.embedding.android.NormalTheme"
-51-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:19:15-70
+51-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:19:15-70
 52                android:resource="@style/NormalTheme" />
-52-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:20:15-52
+52-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:20:15-52
 53            <!--
 54                 Displays an Android View that continues showing the launch screen
 55                 Drawable until Flutter paints its first frame, then this splash
@@ -96,21 +96,21 @@
 58                 Flutter's first frame.
 59            -->
 60            <meta-data
-60-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:27:13-30:17
+60-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:27:13-30:17
 61                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-61-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:28:15-79
+61-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:28:15-79
 62                android:resource="@drawable/launch_background" />
-62-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:29:15-61
+62-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:29:15-61
 63
 64            <intent-filter>
-64-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:31:13-34:29
+64-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:31:13-34:29
 65                <action android:name="android.intent.action.MAIN" />
-65-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:32:17-68
-65-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:32:25-66
+65-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:32:17-68
+65-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:32:25-66
 66
 67                <category android:name="android.intent.category.LAUNCHER" />
-67-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:33:17-76
-67-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:33:27-74
+67-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:33:17-76
+67-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:33:27-74
 68            </intent-filter>
 69        </activity>
 70        <!--
@@ -118,265 +118,265 @@
 72             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 73        -->
 74        <meta-data
-74-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:38:9-40:33
+74-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:38:9-40:33
 75            android:name="flutterEmbedding"
-75-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:39:13-44
+75-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:39:13-44
 76            android:value="2" />
-76-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:40:13-30
+76-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:40:13-30
 77        <meta-data
-77-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:41:9-42:70
+77-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:41:9-42:70
 78            android:name="com.google.android.geo.API_KEY"
-78-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:41:20-65
+78-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:41:20-65
 79            android:value="AIzaSyDPnwRkWGUajxdbUd20L8r3r9E2NwXNtxA" />
-79-->/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/android/app/src/main/AndroidManifest.xml:42:13-68
+79-->/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/android/app/src/main/AndroidManifest.xml:42:13-68
 80
 81        <provider
-81-->[:image_picker] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:11:9-19:20
+81-->[:image_picker] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:11:9-19:20
 82            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-82-->[:image_picker] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-82
+82-->[:image_picker] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-82
 83            android:authorities="com.onetenlogics.norwayfinalcustomer.flutter.image_provider"
-83-->[:image_picker] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-74
+83-->[:image_picker] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-74
 84            android:exported="false"
-84-->[:image_picker] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-37
+84-->[:image_picker] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-37
 85            android:grantUriPermissions="true" >
-85-->[:image_picker] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-47
+85-->[:image_picker] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-47
 86            <meta-data
-86-->[:image_picker] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-18:75
+86-->[:image_picker] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-18:75
 87                android:name="android.support.FILE_PROVIDER_PATHS"
-87-->[:image_picker] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:17:17-67
+87-->[:image_picker] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:17:17-67
 88                android:resource="@xml/flutter_image_picker_file_paths" />
-88-->[:image_picker] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-72
+88-->[:image_picker] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-72
 89        </provider>
 90
 91        <service android:name="io.flutter.plugins.firebasemessaging.FlutterFirebaseMessagingService" >
-91-->[:firebase_messaging] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
-91-->[:firebase_messaging] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-101
+91-->[:firebase_messaging] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-12:19
+91-->[:firebase_messaging] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:8:18-101
 92            <intent-filter>
-92-->[:firebase_messaging] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:29
+92-->[:firebase_messaging] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:29
 93                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-93-->[:firebase_messaging] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-78
-93-->[:firebase_messaging] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:25-75
+93-->[:firebase_messaging] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-78
+93-->[:firebase_messaging] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:25-75
 94            </intent-filter>
 95        </service>
 96        <service
-96-->[:firebase_messaging] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:13:9-17:19
+96-->[:firebase_messaging] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:13:9-17:19
 97            android:name="com.google.firebase.components.ComponentDiscoveryService"
-97-->[:firebase_messaging] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:13:18-89
+97-->[:firebase_messaging] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:13:18-89
 98            android:directBootAware="true"
-98-->[com.google.firebase:firebase-common:19.3.1] /Users/bilal/.gradle/caches/transforms-2/files-2.1/b47d6531284b7383b7bd2ad678881422/jetified-firebase-common-19.3.1/AndroidManifest.xml:35:13-43
+98-->[com.google.firebase:firebase-common:19.3.1] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/44982f25b98645dca48a8ff6d25edd8e/jetified-firebase-common-19.3.1/AndroidManifest.xml:35:13-43
 99            android:exported="false" >
-99-->[com.google.firebase:firebase-messaging:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/0b764f0934a12144bad35ff471458898/jetified-firebase-messaging-20.3.0/AndroidManifest.xml:38:13-37
+99-->[com.google.firebase:firebase-messaging:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/20e7dbfd9ec05ca0e8ae689c0ee6371a/jetified-firebase-messaging-20.3.0/AndroidManifest.xml:38:13-37
 100            <meta-data
-100-->[:firebase_messaging] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-16:85
+100-->[:firebase_messaging] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-16:85
 101                android:name="com.google.firebase.components:io.flutter.plugins.firebasemessaging.FlutterFirebaseAppRegistrar"
-101-->[:firebase_messaging] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:15:17-127
+101-->[:firebase_messaging] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:15:17-127
 102                android:value="com.google.firebase.components.ComponentRegistrar" />
-102-->[:firebase_messaging] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:16:17-82
+102-->[:firebase_messaging] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:16:17-82
 103            <meta-data
-103-->[:firebase_database] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
+103-->[:firebase_database] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
 104                android:name="com.google.firebase.components:io.flutter.plugins.firebase.database.FlutterFirebaseAppRegistrar"
-104-->[:firebase_database] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-127
+104-->[:firebase_database] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-127
 105                android:value="com.google.firebase.components.ComponentRegistrar" />
-105-->[:firebase_database] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
+105-->[:firebase_database] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_database/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
 106            <meta-data
-106-->[:firebase_auth] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
+106-->[:firebase_auth] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
 107                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
-107-->[:firebase_auth] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-124
+107-->[:firebase_auth] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-124
 108                android:value="com.google.firebase.components.ComponentRegistrar" />
-108-->[:firebase_auth] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
+108-->[:firebase_auth] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_auth/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
 109            <meta-data
-109-->[:firebase_core] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
+109-->[:firebase_core] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:85
 110                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
-110-->[:firebase_core] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-124
+110-->[:firebase_core] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-124
 111                android:value="com.google.firebase.components.ComponentRegistrar" />
-111-->[:firebase_core] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
+111-->[:firebase_core] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_core/intermediates/library_manifest/debug/AndroidManifest.xml:11:17-82
 112            <meta-data
-112-->[com.google.firebase:firebase-messaging:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/0b764f0934a12144bad35ff471458898/jetified-firebase-messaging-20.3.0/AndroidManifest.xml:39:13-41:85
+112-->[com.google.firebase:firebase-messaging:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/20e7dbfd9ec05ca0e8ae689c0ee6371a/jetified-firebase-messaging-20.3.0/AndroidManifest.xml:39:13-41:85
 113                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
-113-->[com.google.firebase:firebase-messaging:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/0b764f0934a12144bad35ff471458898/jetified-firebase-messaging-20.3.0/AndroidManifest.xml:40:17-119
+113-->[com.google.firebase:firebase-messaging:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/20e7dbfd9ec05ca0e8ae689c0ee6371a/jetified-firebase-messaging-20.3.0/AndroidManifest.xml:40:17-119
 114                android:value="com.google.firebase.components.ComponentRegistrar" />
-114-->[com.google.firebase:firebase-messaging:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/0b764f0934a12144bad35ff471458898/jetified-firebase-messaging-20.3.0/AndroidManifest.xml:41:17-82
+114-->[com.google.firebase:firebase-messaging:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/20e7dbfd9ec05ca0e8ae689c0ee6371a/jetified-firebase-messaging-20.3.0/AndroidManifest.xml:41:17-82
 115            <meta-data
-115-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:36:13-38:85
+115-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:36:13-38:85
 116                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-116-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:37:17-109
+116-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:37:17-109
 117                android:value="com.google.firebase.components.ComponentRegistrar" />
-117-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:38:17-82
+117-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:38:17-82
 118            <meta-data
-118-->[com.google.firebase:firebase-database:19.5.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/1825b3f97bc3ece48000f264daba777f/firebase-database-19.5.0/AndroidManifest.xml:32:13-34:85
+118-->[com.google.firebase:firebase-database:19.5.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/1825b3f97bc3ece48000f264daba777f/firebase-database-19.5.0/AndroidManifest.xml:32:13-34:85
 119                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
-119-->[com.google.firebase:firebase-database:19.5.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/1825b3f97bc3ece48000f264daba777f/firebase-database-19.5.0/AndroidManifest.xml:33:17-109
+119-->[com.google.firebase:firebase-database:19.5.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/1825b3f97bc3ece48000f264daba777f/firebase-database-19.5.0/AndroidManifest.xml:33:17-109
 120                android:value="com.google.firebase.components.ComponentRegistrar" />
-120-->[com.google.firebase:firebase-database:19.5.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/1825b3f97bc3ece48000f264daba777f/firebase-database-19.5.0/AndroidManifest.xml:34:17-82
+120-->[com.google.firebase:firebase-database:19.5.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/1825b3f97bc3ece48000f264daba777f/firebase-database-19.5.0/AndroidManifest.xml:34:17-82
 121            <meta-data
-121-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:32:13-34:85
+121-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:32:13-34:85
 122                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
-122-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:33:17-96
+122-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:33:17-96
 123                android:value="com.google.firebase.components.ComponentRegistrar" />
-123-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:34:17-82
+123-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:34:17-82
 124            <meta-data
-124-->[com.google.android.gms:play-services-measurement-api:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/05b67e324539043b4c5b5bb2aa6a00fa/play-services-measurement-api-17.6.0/AndroidManifest.xml:30:13-32:85
+124-->[com.google.android.gms:play-services-measurement-api:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/05b67e324539043b4c5b5bb2aa6a00fa/play-services-measurement-api-17.6.0/AndroidManifest.xml:30:13-32:85
 125                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
-125-->[com.google.android.gms:play-services-measurement-api:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/05b67e324539043b4c5b5bb2aa6a00fa/play-services-measurement-api-17.6.0/AndroidManifest.xml:31:17-139
+125-->[com.google.android.gms:play-services-measurement-api:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/05b67e324539043b4c5b5bb2aa6a00fa/play-services-measurement-api-17.6.0/AndroidManifest.xml:31:17-139
 126                android:value="com.google.firebase.components.ComponentRegistrar" />
-126-->[com.google.android.gms:play-services-measurement-api:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/05b67e324539043b4c5b5bb2aa6a00fa/play-services-measurement-api-17.6.0/AndroidManifest.xml:32:17-82
+126-->[com.google.android.gms:play-services-measurement-api:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/05b67e324539043b4c5b5bb2aa6a00fa/play-services-measurement-api-17.6.0/AndroidManifest.xml:32:17-82
 127            <meta-data
-127-->[com.google.firebase:firebase-installations:16.3.3] /Users/bilal/.gradle/caches/transforms-2/files-2.1/5bc58f8775195b6a799d9a89db1ed50d/firebase-installations-16.3.3/AndroidManifest.xml:17:13-19:85
+127-->[com.google.firebase:firebase-installations:16.3.3] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/5bc58f8775195b6a799d9a89db1ed50d/firebase-installations-16.3.3/AndroidManifest.xml:17:13-19:85
 128                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
-128-->[com.google.firebase:firebase-installations:16.3.3] /Users/bilal/.gradle/caches/transforms-2/files-2.1/5bc58f8775195b6a799d9a89db1ed50d/firebase-installations-16.3.3/AndroidManifest.xml:18:17-127
+128-->[com.google.firebase:firebase-installations:16.3.3] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/5bc58f8775195b6a799d9a89db1ed50d/firebase-installations-16.3.3/AndroidManifest.xml:18:17-127
 129                android:value="com.google.firebase.components.ComponentRegistrar" />
-129-->[com.google.firebase:firebase-installations:16.3.3] /Users/bilal/.gradle/caches/transforms-2/files-2.1/5bc58f8775195b6a799d9a89db1ed50d/firebase-installations-16.3.3/AndroidManifest.xml:19:17-82
+129-->[com.google.firebase:firebase-installations:16.3.3] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/5bc58f8775195b6a799d9a89db1ed50d/firebase-installations-16.3.3/AndroidManifest.xml:19:17-82
 130            <meta-data
-130-->[com.google.firebase:firebase-datatransport:17.0.3] /Users/bilal/.gradle/caches/transforms-2/files-2.1/e95a399e5f0ca470eeeea3e65eb0b585/firebase-datatransport-17.0.3/AndroidManifest.xml:28:13-30:85
+130-->[com.google.firebase:firebase-datatransport:17.0.3] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/e95a399e5f0ca470eeeea3e65eb0b585/firebase-datatransport-17.0.3/AndroidManifest.xml:28:13-30:85
 131                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
-131-->[com.google.firebase:firebase-datatransport:17.0.3] /Users/bilal/.gradle/caches/transforms-2/files-2.1/e95a399e5f0ca470eeeea3e65eb0b585/firebase-datatransport-17.0.3/AndroidManifest.xml:29:17-115
+131-->[com.google.firebase:firebase-datatransport:17.0.3] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/e95a399e5f0ca470eeeea3e65eb0b585/firebase-datatransport-17.0.3/AndroidManifest.xml:29:17-115
 132                android:value="com.google.firebase.components.ComponentRegistrar" />
-132-->[com.google.firebase:firebase-datatransport:17.0.3] /Users/bilal/.gradle/caches/transforms-2/files-2.1/e95a399e5f0ca470eeeea3e65eb0b585/firebase-datatransport-17.0.3/AndroidManifest.xml:30:17-82
+132-->[com.google.firebase:firebase-datatransport:17.0.3] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/e95a399e5f0ca470eeeea3e65eb0b585/firebase-datatransport-17.0.3/AndroidManifest.xml:30:17-82
 133        </service> <!-- Needs to be explicitly declared on P+ -->
 134        <uses-library
-134-->[com.google.android.gms:play-services-maps:17.0.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/23cc5518a2842de42d517ee74aa79a3e/play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
+134-->[com.google.android.gms:play-services-maps:17.0.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/23cc5518a2842de42d517ee74aa79a3e/play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
 135            android:name="org.apache.http.legacy"
-135-->[com.google.android.gms:play-services-maps:17.0.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/23cc5518a2842de42d517ee74aa79a3e/play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
+135-->[com.google.android.gms:play-services-maps:17.0.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/23cc5518a2842de42d517ee74aa79a3e/play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
 136            android:required="false" />
-136-->[com.google.android.gms:play-services-maps:17.0.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/23cc5518a2842de42d517ee74aa79a3e/play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
+136-->[com.google.android.gms:play-services-maps:17.0.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/23cc5518a2842de42d517ee74aa79a3e/play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
 137        <!--
 138             FirebaseMessagingService performs security checks at runtime,
 139             but set to not exported to explicitly avoid allowing another app to call it.
 140        -->
 141        <service
-141-->[com.google.firebase:firebase-messaging:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/0b764f0934a12144bad35ff471458898/jetified-firebase-messaging-20.3.0/AndroidManifest.xml:28:9-35:19
+141-->[com.google.firebase:firebase-messaging:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/20e7dbfd9ec05ca0e8ae689c0ee6371a/jetified-firebase-messaging-20.3.0/AndroidManifest.xml:28:9-35:19
 142            android:name="com.google.firebase.messaging.FirebaseMessagingService"
-142-->[com.google.firebase:firebase-messaging:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/0b764f0934a12144bad35ff471458898/jetified-firebase-messaging-20.3.0/AndroidManifest.xml:29:13-82
+142-->[com.google.firebase:firebase-messaging:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/20e7dbfd9ec05ca0e8ae689c0ee6371a/jetified-firebase-messaging-20.3.0/AndroidManifest.xml:29:13-82
 143            android:directBootAware="true"
-143-->[com.google.firebase:firebase-messaging:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/0b764f0934a12144bad35ff471458898/jetified-firebase-messaging-20.3.0/AndroidManifest.xml:30:13-43
+143-->[com.google.firebase:firebase-messaging:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/20e7dbfd9ec05ca0e8ae689c0ee6371a/jetified-firebase-messaging-20.3.0/AndroidManifest.xml:30:13-43
 144            android:exported="false" >
-144-->[com.google.firebase:firebase-messaging:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/0b764f0934a12144bad35ff471458898/jetified-firebase-messaging-20.3.0/AndroidManifest.xml:31:13-37
+144-->[com.google.firebase:firebase-messaging:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/20e7dbfd9ec05ca0e8ae689c0ee6371a/jetified-firebase-messaging-20.3.0/AndroidManifest.xml:31:13-37
 145            <intent-filter android:priority="-500" >
-145-->[:firebase_messaging] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:29
+145-->[:firebase_messaging] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-11:29
 146                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-146-->[:firebase_messaging] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-78
-146-->[:firebase_messaging] /Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:25-75
+146-->[:firebase_messaging] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:17-78
+146-->[:firebase_messaging] /Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/firebase_messaging/intermediates/library_manifest/debug/AndroidManifest.xml:10:25-75
 147            </intent-filter>
 148        </service>
 149
 150        <activity
-150-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:24:9-31:50
+150-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:24:9-31:50
 151            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
-151-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:25:13-85
+151-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:25:13-85
 152            android:excludeFromRecents="true"
-152-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:26:13-46
+152-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:26:13-46
 153            android:exported="true"
-153-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:27:13-36
+153-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:27:13-36
 154            android:launchMode="singleTask"
-154-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:28:13-44
+154-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:28:13-44
 155            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
-155-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:29:13-102
+155-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:29:13-102
 156            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-156-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:30:13-72
+156-->[com.google.firebase:firebase-auth:19.4.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/8c6089a0de7f9851f85bc03c083d64c7/firebase-auth-19.4.0/AndroidManifest.xml:30:13-72
 157
 158        <receiver
-158-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:37:9-44:20
+158-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:37:9-44:20
 159            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
-159-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:38:13-78
+159-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:38:13-78
 160            android:exported="true"
-160-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:39:13-36
+160-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:39:13-36
 161            android:permission="com.google.android.c2dm.permission.SEND" >
-161-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:40:13-73
+161-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:40:13-73
 162            <intent-filter>
-162-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:41:13-43:29
+162-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:41:13-43:29
 163                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-163-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:42:17-81
-163-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:42:25-78
+163-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:42:17-81
+163-->[com.google.firebase:firebase-iid:20.3.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2b599f3130352b8e875024de847960f8/firebase-iid-20.3.0/AndroidManifest.xml:42:25-78
 164            </intent-filter>
 165        </receiver>
 166
 167        <activity
-167-->[com.google.android.gms:play-services-base:17.1.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/81afe58a448e3ee778bc0f2a4c0fa85d/play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
+167-->[com.google.android.gms:play-services-base:17.1.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/81afe58a448e3ee778bc0f2a4c0fa85d/play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
 168            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-168-->[com.google.android.gms:play-services-base:17.1.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/81afe58a448e3ee778bc0f2a4c0fa85d/play-services-base-17.1.0/AndroidManifest.xml:24:13-79
+168-->[com.google.android.gms:play-services-base:17.1.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/81afe58a448e3ee778bc0f2a4c0fa85d/play-services-base-17.1.0/AndroidManifest.xml:24:13-79
 169            android:exported="false"
-169-->[com.google.android.gms:play-services-base:17.1.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/81afe58a448e3ee778bc0f2a4c0fa85d/play-services-base-17.1.0/AndroidManifest.xml:25:13-37
+169-->[com.google.android.gms:play-services-base:17.1.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/81afe58a448e3ee778bc0f2a4c0fa85d/play-services-base-17.1.0/AndroidManifest.xml:25:13-37
 170            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-170-->[com.google.android.gms:play-services-base:17.1.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/81afe58a448e3ee778bc0f2a4c0fa85d/play-services-base-17.1.0/AndroidManifest.xml:26:13-72
+170-->[com.google.android.gms:play-services-base:17.1.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/81afe58a448e3ee778bc0f2a4c0fa85d/play-services-base-17.1.0/AndroidManifest.xml:26:13-72
 171
 172        <provider
-172-->[com.google.firebase:firebase-common:19.3.1] /Users/bilal/.gradle/caches/transforms-2/files-2.1/b47d6531284b7383b7bd2ad678881422/jetified-firebase-common-19.3.1/AndroidManifest.xml:26:9-31:39
+172-->[com.google.firebase:firebase-common:19.3.1] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/44982f25b98645dca48a8ff6d25edd8e/jetified-firebase-common-19.3.1/AndroidManifest.xml:26:9-31:39
 173            android:name="com.google.firebase.provider.FirebaseInitProvider"
-173-->[com.google.firebase:firebase-common:19.3.1] /Users/bilal/.gradle/caches/transforms-2/files-2.1/b47d6531284b7383b7bd2ad678881422/jetified-firebase-common-19.3.1/AndroidManifest.xml:27:13-77
+173-->[com.google.firebase:firebase-common:19.3.1] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/44982f25b98645dca48a8ff6d25edd8e/jetified-firebase-common-19.3.1/AndroidManifest.xml:27:13-77
 174            android:authorities="com.onetenlogics.norwayfinalcustomer.firebaseinitprovider"
-174-->[com.google.firebase:firebase-common:19.3.1] /Users/bilal/.gradle/caches/transforms-2/files-2.1/b47d6531284b7383b7bd2ad678881422/jetified-firebase-common-19.3.1/AndroidManifest.xml:28:13-72
+174-->[com.google.firebase:firebase-common:19.3.1] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/44982f25b98645dca48a8ff6d25edd8e/jetified-firebase-common-19.3.1/AndroidManifest.xml:28:13-72
 175            android:directBootAware="true"
-175-->[com.google.firebase:firebase-common:19.3.1] /Users/bilal/.gradle/caches/transforms-2/files-2.1/b47d6531284b7383b7bd2ad678881422/jetified-firebase-common-19.3.1/AndroidManifest.xml:29:13-43
+175-->[com.google.firebase:firebase-common:19.3.1] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/44982f25b98645dca48a8ff6d25edd8e/jetified-firebase-common-19.3.1/AndroidManifest.xml:29:13-43
 176            android:exported="false"
-176-->[com.google.firebase:firebase-common:19.3.1] /Users/bilal/.gradle/caches/transforms-2/files-2.1/b47d6531284b7383b7bd2ad678881422/jetified-firebase-common-19.3.1/AndroidManifest.xml:30:13-37
+176-->[com.google.firebase:firebase-common:19.3.1] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/44982f25b98645dca48a8ff6d25edd8e/jetified-firebase-common-19.3.1/AndroidManifest.xml:30:13-37
 177            android:initOrder="100" />
-177-->[com.google.firebase:firebase-common:19.3.1] /Users/bilal/.gradle/caches/transforms-2/files-2.1/b47d6531284b7383b7bd2ad678881422/jetified-firebase-common-19.3.1/AndroidManifest.xml:31:13-36
+177-->[com.google.firebase:firebase-common:19.3.1] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/44982f25b98645dca48a8ff6d25edd8e/jetified-firebase-common-19.3.1/AndroidManifest.xml:31:13-36
 178
 179        <receiver
-179-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:29:9-33:20
+179-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:29:9-33:20
 180            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
-180-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:30:13-85
+180-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:30:13-85
 181            android:enabled="true"
-181-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:31:13-35
+181-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:31:13-35
 182            android:exported="false" >
-182-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:32:13-37
+182-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:32:13-37
 183        </receiver>
 184
 185        <service
-185-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:35:9-38:40
+185-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:35:9-38:40
 186            android:name="com.google.android.gms.measurement.AppMeasurementService"
-186-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:36:13-84
+186-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:36:13-84
 187            android:enabled="true"
-187-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:37:13-35
+187-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:37:13-35
 188            android:exported="false" />
-188-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:38:13-37
+188-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:38:13-37
 189        <service
-189-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:39:9-43:72
+189-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:39:9-43:72
 190            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
-190-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:40:13-87
+190-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:40:13-87
 191            android:enabled="true"
-191-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:41:13-35
+191-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:41:13-35
 192            android:exported="false"
-192-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:42:13-37
+192-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:42:13-37
 193            android:permission="android.permission.BIND_JOB_SERVICE" />
-193-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:43:13-69
+193-->[com.google.android.gms:play-services-measurement:17.6.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/553521fbf0c3ff09e96af34538f94893/play-services-measurement-17.6.0/AndroidManifest.xml:43:13-69
 194
 195        <meta-data
-195-->[com.google.android.gms:play-services-basement:17.0.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/211963dfac396c48d271f929b85f9a45/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+195-->[com.google.android.gms:play-services-basement:17.0.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2ade42e8c7a37095bcee7bb541994581/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
 196            android:name="com.google.android.gms.version"
-196-->[com.google.android.gms:play-services-basement:17.0.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/211963dfac396c48d271f929b85f9a45/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+196-->[com.google.android.gms:play-services-basement:17.0.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2ade42e8c7a37095bcee7bb541994581/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
 197            android:value="@integer/google_play_services_version" />
-197-->[com.google.android.gms:play-services-basement:17.0.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/211963dfac396c48d271f929b85f9a45/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+197-->[com.google.android.gms:play-services-basement:17.0.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/2ade42e8c7a37095bcee7bb541994581/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
 198
 199        <service
-199-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/69a343fae04c290ebcd4420f4533827c/transport-backend-cct-2.2.0/AndroidManifest.xml:29:9-35:19
+199-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/69a343fae04c290ebcd4420f4533827c/transport-backend-cct-2.2.0/AndroidManifest.xml:29:9-35:19
 200            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-200-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/69a343fae04c290ebcd4420f4533827c/transport-backend-cct-2.2.0/AndroidManifest.xml:30:13-103
+200-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/69a343fae04c290ebcd4420f4533827c/transport-backend-cct-2.2.0/AndroidManifest.xml:30:13-103
 201            android:exported="false" >
-201-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/69a343fae04c290ebcd4420f4533827c/transport-backend-cct-2.2.0/AndroidManifest.xml:31:13-37
+201-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/69a343fae04c290ebcd4420f4533827c/transport-backend-cct-2.2.0/AndroidManifest.xml:31:13-37
 202            <meta-data
-202-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/69a343fae04c290ebcd4420f4533827c/transport-backend-cct-2.2.0/AndroidManifest.xml:32:13-34:39
+202-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/69a343fae04c290ebcd4420f4533827c/transport-backend-cct-2.2.0/AndroidManifest.xml:32:13-34:39
 203                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-203-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/69a343fae04c290ebcd4420f4533827c/transport-backend-cct-2.2.0/AndroidManifest.xml:33:17-94
+203-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/69a343fae04c290ebcd4420f4533827c/transport-backend-cct-2.2.0/AndroidManifest.xml:33:17-94
 204                android:value="cct" />
-204-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/69a343fae04c290ebcd4420f4533827c/transport-backend-cct-2.2.0/AndroidManifest.xml:34:17-36
+204-->[com.google.android.datatransport:transport-backend-cct:2.2.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/69a343fae04c290ebcd4420f4533827c/transport-backend-cct-2.2.0/AndroidManifest.xml:34:17-36
 205        </service>
 206        <service
-206-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/91efd35553d6d129ba776e62362b4536/transport-runtime-2.2.0/AndroidManifest.xml:26:9-30:19
+206-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/91efd35553d6d129ba776e62362b4536/transport-runtime-2.2.0/AndroidManifest.xml:26:9-30:19
 207            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-207-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/91efd35553d6d129ba776e62362b4536/transport-runtime-2.2.0/AndroidManifest.xml:27:13-117
+207-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/91efd35553d6d129ba776e62362b4536/transport-runtime-2.2.0/AndroidManifest.xml:27:13-117
 208            android:exported="false"
-208-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/91efd35553d6d129ba776e62362b4536/transport-runtime-2.2.0/AndroidManifest.xml:28:13-37
+208-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/91efd35553d6d129ba776e62362b4536/transport-runtime-2.2.0/AndroidManifest.xml:28:13-37
 209            android:permission="android.permission.BIND_JOB_SERVICE" >
-209-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/91efd35553d6d129ba776e62362b4536/transport-runtime-2.2.0/AndroidManifest.xml:29:13-69
+209-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/91efd35553d6d129ba776e62362b4536/transport-runtime-2.2.0/AndroidManifest.xml:29:13-69
 210        </service>
 211
 212        <receiver
-212-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/91efd35553d6d129ba776e62362b4536/transport-runtime-2.2.0/AndroidManifest.xml:32:9-34:40
+212-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/91efd35553d6d129ba776e62362b4536/transport-runtime-2.2.0/AndroidManifest.xml:32:9-34:40
 213            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-213-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/91efd35553d6d129ba776e62362b4536/transport-runtime-2.2.0/AndroidManifest.xml:33:13-132
+213-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/91efd35553d6d129ba776e62362b4536/transport-runtime-2.2.0/AndroidManifest.xml:33:13-132
 214            android:exported="false" />
-214-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/bilal/.gradle/caches/transforms-2/files-2.1/91efd35553d6d129ba776e62362b4536/transport-runtime-2.2.0/AndroidManifest.xml:34:13-37
+214-->[com.google.android.datatransport:transport-runtime:2.2.0] /Users/bilalrizvi/.gradle/caches/transforms-2/files-2.1/91efd35553d6d129ba776e62362b4536/transport-runtime-2.2.0/AndroidManifest.xml:34:13-37
 215    </application>
 216
 217</manifest>

@@ -7,10 +7,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:norwayfinalcustomer/Wallet.dart';
 import 'package:norwayfinalcustomer/car/Bottom%20Navigation.dart';
+import 'package:norwayfinalcustomer/car/pages/carooption.dart';
 import 'package:norwayfinalcustomer/foodModule/Screen/foodcategory.dart';
 
 import 'API/API.dart';
@@ -146,31 +148,60 @@ class _FirstpageState extends State<Firstpage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButton: _getFAB(),
-      resizeToAvoidBottomInset: false,
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Container(
-              color: Colors.white,
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: EdgeInsets.all(20),
-                  child: _buildRightSection(),
+    return WillPopScope(
+      onWillPop: (){
+        showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: Text("Confirm Exit"),
+                content: Text("Are you sure you want to exit?"),
+                actions: <Widget>[
+                  FlatButton(
+                    child: Text("YES"),
+                    onPressed: () {
+                      SystemNavigator.pop();
+                    },
+                  ),
+                  FlatButton(
+                    child: Text("NO"),
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                  )
+                ],
+              );
+            }
+        );
+        return Future.value(true);
+      },
+      child: Scaffold(
+        floatingActionButton: _getFAB(),
+        resizeToAvoidBottomInset: false,
+        body: SafeArea(
+          child: Stack(
+            children: [
+              Container(
+                color: Colors.white,
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height,
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: EdgeInsets.all(20),
+                    child: _buildRightSection(),
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: indicatorshow(indicatorvisible),
-              ),
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: indicatorshow(indicatorvisible),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -524,7 +555,7 @@ class _FirstpageState extends State<Firstpage> {
                                               context,
                                               MaterialPageRoute(
                                                   builder: (context) =>
-                                                      CarNavigation()));
+                                                      CarOption()));
                                         },
                                         color: Color(0xFFFF8967),
                                         shape: RoundedRectangleBorder(

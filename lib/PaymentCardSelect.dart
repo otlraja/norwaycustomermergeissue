@@ -111,7 +111,7 @@ class _PaymentCardDetailsState extends State<PaymentCardDetails> {
                               Spacer(),
                               Container(
                                 child: Icon(
-                                  Icons.money,
+                                  Icons.attach_money,
                                   color: Colors.green[500],
                                 ),
                               )

@@ -1,7 +1,7 @@
-#Fri Jan 08 15:10:06 PKT 2021
-base.0=/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+#Sat Jan 09 19:20:24 PKT 2021
+base.0=/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.1=classes2.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=/Users/bilal/Documents/mawjood_provider-master/norwaycustomermergeissue/build/app/intermediates/dex/debug/mergeDexDebug/out/classes2.dex
+base.1=/Users/bilalrizvi/Desktop/norwayfinalcustomer-master/build/app/intermediates/dex/debug/mergeDexDebug/out/classes2.dex

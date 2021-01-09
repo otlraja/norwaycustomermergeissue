@@ -139,7 +139,7 @@ class _ResturantSelectState extends State<ResturantSelect> {
     Widget cancelButton = FlatButton(
       child: Text("Delivery", style: TextStyle(color: Colors.green)),
       onPressed: () {
-        deliverytype = "AK Bookers Rider";
+        deliverytype = "AK Booker Rider";
         Navigator.pop(context);
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (_) => FoodCheckout(set)));
@@ -152,9 +152,9 @@ class _ResturantSelectState extends State<ResturantSelect> {
       },
     );
     Widget continueButton = FlatButton(
-      child: Text("Take a Way", style: TextStyle(color: Colors.pinkAccent)),
+      child: Text("Take Away", style: TextStyle(color: Colors.pinkAccent)),
       onPressed: () {
-        deliverytype = "Take A way";
+        deliverytype = "Take Away";
         Navigator.pop(context);
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (_) => FoodCheckout(set)));

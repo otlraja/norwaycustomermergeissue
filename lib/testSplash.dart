@@ -34,7 +34,7 @@ class _SplashTestState extends State<SplashTest> with TickerProviderStateMixin{
         const Duration(seconds: 5), ()
     {
       Navigator.of(context)
-          .push(MaterialPageRoute(builder: (_) => Firstpage()));
+          .pushReplacement(MaterialPageRoute(builder: (_) => Firstpage()));
     });
   }
   initi(){
@@ -71,7 +71,7 @@ class _SplashTestState extends State<SplashTest> with TickerProviderStateMixin{
     _firebaseMessaging.subscribeToTopic('all');
     _firebaseMessaging.getToken().then((token) => SplashTest.tok = token);
   }
-  void getMessage() {
+  void getMessage(){
     var platform = Theme.of(context).platform;
     if (platform == TargetPlatform.iOS) {
       _firebaseMessaging

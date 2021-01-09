@@ -20,6 +20,7 @@ class Distancee{
     //d=( d * 1000);
     //d = d * 1000;
     vendortime = (d/40)*60;
+    Delivery_Charges=d*5.0;
     return d;
   }
   double deg2rad(double deg)

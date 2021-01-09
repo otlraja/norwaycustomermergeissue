@@ -65,19 +65,18 @@ class Food_Home extends StatefulWidget {
 class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
   String filter = "";
   TextEditingController controller = new TextEditingController();
-  List<Products> _filteredList = [];
+  List<Products> filteredList = globalproductType[0].product;
   List<Products> _vendorList = [];
   var indicatorvisible = false;
-  var index=0;
+  var upperindex=0;
   var i = 0;
-
   TabController _tabController;
   showAlertDialog() {
     // set up the buttons
     Widget cancelButton = FlatButton(
       child: Text("Delivery", style: TextStyle(color: Colors.green)),
       onPressed: () {
-        deliverytype = "AK Bookers Rider";
+        deliverytype = "AK Booker Rider";
         Navigator.pop(context);
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (_) => FoodCheckout(set)));
@@ -90,9 +89,9 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
       },
     );
     Widget continueButton = FlatButton(
-      child: Text("Take a Way", style: TextStyle(color: Colors.pinkAccent)),
+      child: Text("Take Away", style: TextStyle(color: Colors.pinkAccent)),
       onPressed: () {
-        deliverytype = "Take A way";
+        deliverytype = "Take Away";
         Navigator.pop(context);
         Navigator.of(context)
             .push(MaterialPageRoute(builder: (_) => FoodCheckout(set)));
@@ -123,6 +122,7 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
       Food_Home.carttext();
     });
   }
+
   showAlertDialoglogin() {
     // set up the buttons
     Widget cancel = FlatButton(
@@ -303,12 +303,12 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
 
   getfilteredlist(){
     List<Products> tmpList = new List<Products>();
-    for(int i=0; i < globalproductType[index].product.length; i++) {
-      tmpList.add(globalproductType[index].product[i]);
+    for(int i=0; i < globalproductType[upperindex].product.length; i++) {
+      tmpList.add(globalproductType[upperindex].product[i]);
     }
     setState(() {
       _vendorList = tmpList;
-      _filteredList = _vendorList;
+      filteredList = _vendorList;
     });
   }
 
@@ -331,7 +331,7 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
   void initState() {
     _tabController = new TabController(length: globalproductType.length, vsync: this);
     _tabController.addListener(() {
-      index = _tabController.index;
+      upperindex = _tabController.index;
       getfilteredlist();
     });
     List<Products> tmpList = new List<Products>();
@@ -341,13 +341,13 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
     }
     setState(() {
       _vendorList = tmpList;
-      _filteredList = _vendorList;
+      filteredList = _vendorList;
     });
     controller.addListener(() {
       if(controller.text.isEmpty) {
         setState(() {
           filter = "";
-          _filteredList = _vendorList;
+          filteredList = _vendorList;
         });
       } else {
         setState(() {
@@ -374,6 +374,7 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
             }
           }
         }
+        getfilteredlist();
       }
       else{
         for (int i = 0; i < globalproductType.length; i++) {
@@ -381,6 +382,7 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
             globalproductType[i].product[j].orderquantity = 0;
           }
         }
+        getfilteredlist();
       }
     }
     else if(type == 'grocery'){
@@ -396,6 +398,8 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
             }
           }
         }
+        getfilteredlist();
+
       }
       else{
         for (int i = 0; i < globalproductType.length; i++) {
@@ -403,6 +407,8 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
             globalproductType[i].product[j].orderquantity = 0;
           }
         }
+        getfilteredlist();
+
       }
     }
     else if(type == 'store'){
@@ -418,6 +424,8 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
             }
           }
         }
+        getfilteredlist();
+
       }
       else{
         for (int i = 0; i < globalproductType.length; i++) {
@@ -425,6 +433,8 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
             globalproductType[i].product[j].orderquantity = 0;
           }
         }
+        getfilteredlist();
+
       }
     }
   }
@@ -531,13 +541,13 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
 
     if((filter.isNotEmpty)) {
       List<Products> tmpList = new List<Products>();
-      for(int i = 0; i < _filteredList.length; i++) {
-        if(_filteredList[i].name.toLowerCase().contains(filter.toLowerCase()) ||
-            _filteredList[i].price.toString().contains(filter.toLowerCase())) {
-          tmpList.add(_filteredList[i]);
+      for(int i = 0; i < filteredList.length; i++) {
+        if(filteredList[i].name.toLowerCase().contains(filter.toLowerCase()) ||
+            filteredList[i].price.toString().contains(filter.toLowerCase())) {
+          tmpList.add(filteredList[i]);
         }
       }
-      _filteredList = tmpList;
+      filteredList = tmpList;
     }
 
     return Scaffold(
@@ -741,7 +751,7 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
                               child: ListView.builder(
                                   padding: EdgeInsets.only(bottom: 60),
                                   scrollDirection: Axis.vertical,
-                                  itemCount: _filteredList.length,
+                                  itemCount: filteredList.length,
                                   itemBuilder: (_, index) {
                                     return InkWell(
                                       // onTap: ontap,
@@ -772,7 +782,7 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
                                                             BoxFit.fill,
                                                             image:
                                                             NetworkImage(
-                                                              _filteredList[index]
+                                                              filteredList[index]
                                                                   .image,
                                                             ),
                                                           )),
@@ -793,7 +803,7 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
                                                           .start,
                                                       children: [
                                                         Text(
-                                                            _filteredList[index]
+                                                            filteredList[index]
                                                                 .name,
                                                             style: AppFonts
                                                                 .monmblack),
@@ -805,7 +815,7 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
                                                           ),
                                                           child: Text(
                                                             "\$ " +
-                                                                _filteredList[index]
+                                                                filteredList[index]
                                                                     .price
                                                                     .toString(),
                                                             textAlign:
@@ -838,41 +848,37 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
                                                             20),
                                                       ),
                                                       child: Row(
-                                                        children: <
-                                                            Widget>[
-                                                          _filteredList[index]
-                                                              .orderquantity !=
-                                                              0
+                                                        children: <Widget>[
+                                                          filteredList[index].orderquantity != 0
                                                               ? new IconButton(
                                                             icon:
                                                             new Icon(Icons.remove),
                                                             onPressed: () =>
                                                                 setState(() {
-                                                                  _filteredList[index].orderquantity--;
+                                                                  filteredList[index].orderquantity--;
                                                                   var a;
                                                                   if(type == 'food'){
                                                                     a = globalfoodcart.where((element) =>
                                                                     element.id ==
-                                                                        _filteredList[index].id);
+                                                                        filteredList[index].id);
 
                                                                     globalfoodcart.remove(a.first);
                                                                   }
                                                                   else if(type == 'grocery'){
                                                                     a = globalgrocerycart.where((element) =>
                                                                     element.id ==
-                                                                        _filteredList[index].id);
+                                                                        filteredList[index].id);
 
                                                                     globalgrocerycart.remove(a.first);
                                                                   }
                                                                   else if(type == 'store'){
                                                                     a = globalstorecart.where((element) =>
                                                                     element.id ==
-                                                                        _filteredList[index].id);
+                                                                        filteredList[index].id);
 
                                                                     globalstorecart.remove(a.first);
                                                                   }
-
-                                                                  globalproductType[i].product[index].quantityoncheckout =
+                                                                  globalproductType[upperindex].product[index].quantityoncheckout =
                                                                       a.length - 1;
 
                                                                   calculateprice();
@@ -912,11 +918,11 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
                                                                 }),
                                                           )
                                                               : new Container(),
-                                                          _filteredList[
+                                                          filteredList[
                                                           index]
                                                               .orderquantity !=
                                                               0
-                                                              ? new Text(_filteredList[
+                                                              ? new Text(filteredList[
                                                           index]
                                                               .orderquantity
                                                               .toString())
@@ -945,43 +951,44 @@ class _Food_HomeState extends State<Food_Home> with TickerProviderStateMixin {
                                                                 {
                                                                   setState(
                                                                           () {
-                                                                        _filteredList[index]
+                                                                        filteredList[index]
                                                                             .orderquantity++;
 
                                                                         var a;
 
                                                                         if(type == 'food'){
+                                                                          filteredList[index].deliverycharges = Delivery_Charges.toString();
                                                                           globalfoodcart
-                                                                              .add(_filteredList[index]);
+                                                                              .add(filteredList[index]);
 
                                                                           a = globalfoodcart.where((element) =>
                                                                           element.id ==
-                                                                              _filteredList[index].id);
+                                                                              filteredList[index].id);
 
                                                                         }
                                                                         else if(type == 'grocery'){
-
+                                                                          filteredList[index].deliverycharges = Delivery_Charges.toString();
                                                                           globalgrocerycart
-                                                                              .add(_filteredList[index]);
+                                                                              .add(filteredList[index]);
 
                                                                           a = globalgrocerycart.where((element) =>
                                                                           element.id ==
-                                                                              _filteredList[index].id);
+                                                                              filteredList[index].id);
                                                                         }
                                                                         else if(type == 'store'){
-
+                                                                          filteredList[index].deliverycharges = Delivery_Charges.toString();
                                                                           globalstorecart
-                                                                              .add(_filteredList[index]);
+                                                                              .add(filteredList[index]);
 
                                                                           a = globalstorecart.where((element) =>
                                                                           element.id ==
-                                                                              _filteredList[index].id);
+                                                                              filteredList[index].id);
 
                                                                         }
 
                                                                         if (a.length !=
                                                                             0) {
-                                                                          _filteredList[index].quantityoncheckout =
+                                                                          filteredList[index].quantityoncheckout =
                                                                               a.length;
                                                                         }
                                                                         calculateprice();

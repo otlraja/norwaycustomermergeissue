@@ -224,7 +224,7 @@ class _SignupState extends State<Signupapi> {
                           return null;
                         },
                         decoration: InputDecoration(
-                          suffixIcon: Icon(Icons.call_sharp, color: AppColors.lightgrey,),
+                          suffixIcon: Icon(Icons.call, color: AppColors.lightgrey,),
                           filled: true,
                           border: new OutlineInputBorder(
 

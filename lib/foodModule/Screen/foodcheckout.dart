@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:norwayfinalcustomer/API/API.dart';
 import 'package:norwayfinalcustomer/Models/products.dart';
 import 'package:norwayfinalcustomer/PaymentCardSelect.dart';
@@ -22,6 +23,7 @@ class _FoodCheckoutState extends State<FoodCheckout> {
 
   var showset = globalfoodcart;
   var setsubtotal = "0.0";
+  var deliverycharges = '0.0';
   var clickstatus=true;
 
   @override
@@ -32,14 +34,31 @@ class _FoodCheckoutState extends State<FoodCheckout> {
     if(type == 'food'){
       showset = globalfoodcart;
       setsubtotal = cartprice== null ? "0.0" : cartprice.toString();
+      if(deliverytype=="AK Booker Rider"){
+        deliverycharges = globalfoodcart.isNotEmpty ?  globalfoodcart[0].deliverycharges.toString() : Delivery_Charges.toStringAsFixed(1).toString();
+
+      }else{
+        deliverycharges="0.0";
+      }
     }
     else if(type == 'grocery'){
       showset = globalgrocerycart;
       setsubtotal = grocerycartprice== null ? "0.0" : grocerycartprice.toString();
+      if(deliverytype=="AK Booker Rider"){
+        deliverycharges = globalgrocerycart.isNotEmpty ?  globalgrocerycart[0].deliverycharges.toString() :Delivery_Charges.toStringAsFixed(1).toString();
+      }else{
+        deliverycharges='0.0';
+      }
+
     }
     else if(type == 'store'){
       showset = globalstorecart;
       setsubtotal = storecartprice== null ? "0.0" : storecartprice.toString();
+      if(deliverytype=="AK Booker Rider"){
+        deliverycharges = globalstorecart.isNotEmpty ?  globalstorecart[0].deliverycharges.toString() : Delivery_Charges.toStringAsFixed(1).toString();
+      }else{
+        deliverycharges="0.0";
+      }
     }
     super.initState();
   }
@@ -384,19 +403,43 @@ class _FoodCheckoutState extends State<FoodCheckout> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.only(bottom: 20),
+                                    padding: const EdgeInsets.only(bottom: 10),
                                     child: Container(
                                         child: Row(
                                           children: <Widget>[
                                             Text(
                                               'Delivery Charges',
+                                              style: AppFonts.monm,
+                                            ),
+                                            Spacer(),
+                                            Container(
+                                                width: 60,
+                                                child: Text(
+                                                  '\$ '+double.parse(deliverycharges.toString()).toStringAsFixed(1).toString(),
+                                                  style: AppFonts.monm,
+                                                )),
+                                          ],
+                                        )),
+                                  ),
+                                  Container(
+                                    child: Divider(
+                                      thickness: 0.5,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(bottom: 20),
+                                    child: Container(
+                                        child: Row(
+                                          children: <Widget>[
+                                            Text(
+                                              'Total : ',
                                               style: AppFonts.monm15bold,
                                             ),
                                             Spacer(),
                                             Container(
                                                 width: 60,
                                                 child: Text(
-                                                  '\$ '+(double.parse(sales_tax.toString())+double.parse(setsubtotal.toString())).toString(),
+                                                  '\$ '+(double.parse(sales_tax.toString())+double.parse(setsubtotal.toString())+double.parse(deliverycharges.toString())).toStringAsFixed(1).toString(),
                                                   style: AppFonts.monm15bold,
                                                 )),
                                           ],
@@ -526,7 +569,7 @@ class _FoodCheckoutState extends State<FoodCheckout> {
                                               Container(
                                                 alignment:Alignment.center,
                                                 child: Icon(
-                                                  Icons.money,
+                                                  Icons.monetization_on,
                                                   color: Colors.green[500],
                                                 ),
                                               ),
@@ -596,11 +639,11 @@ class _FoodCheckoutState extends State<FoodCheckout> {
   }
 
   void checkout()async{
-    clickstatus=false;
     checkconnection();
     await Future.delayed(Duration(seconds: 2) , (){
       if(result != null && result){
         if(showset.isNotEmpty) {
+          clickstatus=false;
           if(userselectlat == null){
             userselectlat = usercurrlat.toString();
             userselectlng = usercurrlng.toString();
@@ -612,7 +655,7 @@ class _FoodCheckoutState extends State<FoodCheckout> {
                   foodcheckoutAPI,
                   userid.toString(),
                   newglobalfoodcart[0].vendorid.toString(),
-                  (double.parse(sales_tax.toString())+double.parse(setcartprice.toString())).toString(),
+                  (double.parse(sales_tax.toString())+double.parse(setcartprice.toString())+double.parse(deliverycharges.toString())).toStringAsFixed(1).toString(),
                   sales_tax.toString(),
                   notecontroller.text.toString(),
                   "cod",
@@ -639,7 +682,7 @@ class _FoodCheckoutState extends State<FoodCheckout> {
                   foodcheckoutAPI,
                   userid.toString(),
                   newglobalfoodcart[0].vendorid.toString(),
-                  (double.parse(sales_tax.toString())+double.parse(setcartprice.toString())).toString(),
+                  (double.parse(sales_tax.toString())+double.parse(setcartprice.toString())+double.parse(deliverycharges.toString())).toStringAsFixed(1).toString(),
                   sales_tax.toString(),
                   notecontroller.text.toString(),
                   "card",
@@ -667,7 +710,7 @@ class _FoodCheckoutState extends State<FoodCheckout> {
                   grocerycheckoutAPI,
                   userid.toString(),
                   newglobalfoodcart[0].vendorid.toString(),
-                  (double.parse(sales_tax.toString())+double.parse(setcartprice.toString())).toString(),
+                  (double.parse(sales_tax.toString())+double.parse(setcartprice.toString())+double.parse(deliverycharges.toString())).toStringAsFixed(1).toString(),
                   sales_tax.toString(),
                   notecontroller.text.toString(),
                   "cod",
@@ -771,6 +814,15 @@ class _FoodCheckoutState extends State<FoodCheckout> {
               waitforcheckout();
             }
           }
+        }else if(showset.isEmpty){
+          Fluttertoast.showToast(
+              msg: "Please Select any Items",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.CENTER,
+              timeInSecForIosWeb: 3,
+              backgroundColor: Colors.green,
+              textColor: Colors.white,
+              fontSize: 16.0);
         }
       }
       else{

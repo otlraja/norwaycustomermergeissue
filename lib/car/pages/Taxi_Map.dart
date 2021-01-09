@@ -520,8 +520,7 @@ class _MyAppState extends State<Taxi_Map> {
         var lat = value['latitude'];
         var lon = value['longitude'];
         var distance = Distance().distance1(current.latitude, current.longitude, lat, lon);
-
-        if(distance <= 1500 && value['isBusy']==false && value['OnlineStatus']==true && value['Status']==true ) {
+        if(distance <= 4500 && value['isBusy']==false && value['OnlineStatus']==true ) {
           if (value['selectedServiceName'] == selectedServiceName) {
             final FirebaseDatabase database2 = FirebaseDatabase.instance;
             DatabaseReference ref2 = database2.reference()
@@ -540,9 +539,6 @@ class _MyAppState extends State<Taxi_Map> {
                         SplashTest.toke[0].toString());
                   }
                 });
-                //var tok = value2;
-
-                //postRequest("sajid" , "sajid" , tok).makePostRequest();
               });
             });
           }
@@ -980,7 +976,7 @@ void  getSelectedpayment(String paymentflag){
           backgroundColor: Colors.white,
           leading: IconButton(
             icon: Icon(Icons.arrow_back,color: Colors.black, ),
-             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CarNavigation())),
+             onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => CarOption())),
             color: Colors.white,
           ),
         ),
@@ -1639,6 +1635,8 @@ void  getSelectedpayment(String paymentflag){
     locMap['RideTime']=selectDate;
     locMap['compareTime']=comparetime.toString();
     locMap['isShedule']=sheduleflage;
+    locMap['isPanel']=false;
+
 
     FirebaseDatabase.instance
         .reference()
@@ -1659,7 +1657,7 @@ void  getSelectedpayment(String paymentflag){
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => CarNavigation()));
+                builder: (context) => CarOption()));
       });
     }else if(sheduleflage==true){
       Fluttertoast.showToast(
@@ -1674,7 +1672,7 @@ void  getSelectedpayment(String paymentflag){
        Navigator.push(
            context,
            MaterialPageRoute(
-           builder: (context) => CarNavigation()));
+           builder: (context) =>CarOption()));
      });
     }
 
